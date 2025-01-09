@@ -1,0 +1,43 @@
+{
+  "name": "coolcredit/finbrics-api",
+  "description": "Api for Finbrics",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Api\\": "src/Api"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6.5",
+    "ext-json": "*",
+    "php": ">=8.3.0",
+    "firebase/php-jwt": "^6.10",
+    "ext-http": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+    "test": [
+      "phpunit"
+    ],
+    "check-coding-style": [
+      "phpcs --standard=vendor/coolcredit/php-checks/phpcs_ruleset.xml --extensions=php --colors -n src/"
+    ],
+    "ccs": [
+      "@check-coding-style"
+    ],
+    "fix-coding-style": [
+      "phpcbf --standard=vendor/coolcredit/php-checks/phpcs_ruleset.xml --extensions=php --colors -n -p src/"
+    ],
+    "fcs": [
+      "@fix-coding-style"
+    ],
+    "phpstan": "phpstan analyse -l max -c vendor/coolcredit/php-checks/phpstan.neon src/"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
