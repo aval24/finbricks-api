@@ -2,7 +2,7 @@
 
 namespace Api;
 
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 
 interface ApiRequestInterface
 {
@@ -12,5 +12,5 @@ interface ApiRequestInterface
 
     public function getOptions(): array;
 
-    public function getResponseInstance(ResponseInterface $response): ApiResponseInterface;
+    public function getApiResponseInstance(PsrResponseInterface $response): ApiResponseInterface;
 }

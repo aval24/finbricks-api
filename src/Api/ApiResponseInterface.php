@@ -6,5 +6,7 @@ namespace Api;
 
 interface ApiResponseInterface
 {
+    public function getStatusCode(): int;
 
+    public function getData(): array;
 }
