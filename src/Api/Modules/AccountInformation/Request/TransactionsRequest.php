@@ -2,23 +2,31 @@
 
 namespace Api\Modules\AccountInformation\Request;
 
-use Api\Modules\AccountInformation\Response\TransactionsResponse;
 use Api\ApiRequest;
-use Api\ApiRequestInterface;
 use Api\ApiResponseInterface;
-use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
+use Api\Modules\AccountInformation\Response\TransactionsResponse;
+use Api\RequestBodyInterface;
+use Api\RequestHeaderInterface;
+use Api\ResponseInterface;
 
-class TransactionsRequest extends ApiRequest implements ApiRequestInterface
+class TransactionsRequest extends ApiRequest
 {
-    private array $data = [];
+    protected string $endpoint = '/account/transactions';
+    protected string $method = 'GET';
 
-    public function __construct(array $data = [])
+    public function __construct(
+        RequestHeaderInterface $transactionsRequestHeader,
+        RequestBodyInterface $transactionsRequestBody
+    )
     {
-        $this->data = $data;
-        parent::__construct('', 'GET', []);
+        parent::__construct($transactionsRequestHeader, $transactionsRequestBody);
     }
 
-    public function getResponseInstance(ResponseInterface $response): ApiResponseInterface
+    /**
+     * @param ApiResponseInterface $response
+     * @return ResponseInterface
+     */
+    public function getResponseInstance(ApiResponseInterface $response): ResponseInterface
     {
         return new TransactionsResponse($response);
     }

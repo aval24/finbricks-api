@@ -6,16 +6,16 @@ use Api\ApiResponseInterface;
 use Api\ResponseInterface;
 
 /**
- * User's account transactions
+ * List of user's accounts
  */
-readonly class TransactionsResponse implements ResponseInterface
+readonly class AccountsWithBalanceResponse implements ResponseInterface
 {
     public function __construct(public ApiResponseInterface $apiResponse) {}
 
     /**
      * @return array
      */
-    public function getTransactions(): array
+    public function getAccounts(): array
     {
         return $this->apiResponse->getData();
     }

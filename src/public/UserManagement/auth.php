@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../../vendor/autoload.php';
-$config = require __DIR__ . '/../../src/config/config.php';
+require __DIR__ . '/../../../vendor/autoload.php';
+$config = require __DIR__ . '/../../../src/config/config.php';
 
 use Api\Modules\UserManagement\Request\AuthRequest;
 use Api\Modules\UserManagement\Request\AuthRequestBody;

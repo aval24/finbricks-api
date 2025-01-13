@@ -5,6 +5,8 @@ namespace Api\Modules\UserManagement\Request;
 use Api\ApiRequest;
 use Api\ApiResponseInterface;
 use Api\Modules\UserManagement\Response\AuthResponse;
+use Api\RequestBodyInterface;
+use Api\RequestHeaderInterface;
 use Api\ResponseInterface;
 
 class AuthRequest extends ApiRequest
@@ -13,8 +15,8 @@ class AuthRequest extends ApiRequest
     protected string $method = 'POST';
 
     public function __construct(
-        AuthRequestHeader $authRequestHeader,
-        AuthRequestBody $authRequestBody
+        RequestHeaderInterface $authRequestHeader,
+        RequestBodyInterface $authRequestBody
     )
     {
         parent::__construct(

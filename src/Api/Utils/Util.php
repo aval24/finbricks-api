@@ -8,7 +8,12 @@ use Firebase\JWT\JWT;
 
 class Util {
 
-    public static function jwt($payload): string {
+    /**
+     * @param $payload
+     * @return string
+     */
+    public static function jwt($payload): string
+    {
         $config = require __DIR__ . '/../../../src/config/config.php';
 
         $jwt = JWT::encode($payload, $config['key'], 'RS256', null, ['kid' => $config['merchantId']]);

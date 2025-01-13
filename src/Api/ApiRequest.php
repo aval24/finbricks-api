@@ -14,6 +14,9 @@ abstract class ApiRequest implements ApiRequestInterface
 {
     protected array $options;
 
+    /**
+     * @throws ApiException
+     */
     public function __construct(
         RequestHeaderInterface $authRequestHeader,
         RequestBodyInterface $authRequestBody,
@@ -61,6 +64,7 @@ abstract class ApiRequest implements ApiRequestInterface
      * @param AuthRequestHeader $authRequestHeader
      * @param AuthRequestBody $authRequestBody
      * @return array
+     * @throws ApiException
      */
     private function prepareOptions(
         RequestHeaderInterface $authRequestHeader,

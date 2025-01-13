@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Api\Modules\UserManagement\Request;
+namespace Api\Modules\AccountInformation\Request;
 
 use Api\RequestHeaderInterface;
 
-class TokenRequestHeader implements RequestHeaderInterface
+class AccountsRequestHeader implements RequestHeaderInterface
 {
     public function __construct(
-
     ) {
         //$this->validate();
     }

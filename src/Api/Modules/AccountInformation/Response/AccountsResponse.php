@@ -1,0 +1,30 @@
+<?php
+
+namespace Api\Modules\AccountInformation\Response;
+
+use Api\ApiResponseInterface;
+use Api\ResponseInterface;
+
+/**
+ * List of user's accounts
+ */
+readonly class AccountsResponse implements ResponseInterface
+{
+    public function __construct(public ApiResponseInterface $apiResponse) {}
+
+    /**
+     * @return bool
+     */
+    public function clientHasAccounts(): bool
+    {
+        return !empty($this->apiResponse->getData()['accounts']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getClientAccounts(): array
+    {
+        return $this->apiResponse->getData()['accounts'];
+    }
+}

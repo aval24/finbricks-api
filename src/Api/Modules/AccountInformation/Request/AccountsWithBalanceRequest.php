@@ -1,22 +1,22 @@
 <?php
 
-namespace Api\Modules\UserManagement\Request;
+namespace Api\Modules\AccountInformation\Request;
 
 use Api\ApiRequest;
 use Api\ApiResponseInterface;
-use Api\Modules\UserManagement\Response\TokenResponse;
+use Api\Modules\AccountInformation\Response\AccountsWithBalanceResponse;
 use Api\RequestBodyInterface;
 use Api\RequestHeaderInterface;
 use Api\ResponseInterface;
 
-class TokenRequest extends ApiRequest
+class AccountsWithBalanceRequest extends ApiRequest
 {
-    protected string $endpoint = '/auth/token';
+    protected string $endpoint = '/account/listWithBalance';
     protected string $method = 'GET';
 
     public function __construct(
         RequestHeaderInterface $tokenRequestHeader,
-        RequestBodyInterface   $tokenRequestBody
+        RequestBodyInterface $tokenRequestBody
     )
     {
         parent::__construct($tokenRequestHeader, $tokenRequestBody);
@@ -28,6 +28,6 @@ class TokenRequest extends ApiRequest
      */
     public function getResponseInstance(ApiResponseInterface $response): ResponseInterface
     {
-        return new TokenResponse($response);
+        return new AccountsWithBalanceResponse($response);
     }
 }

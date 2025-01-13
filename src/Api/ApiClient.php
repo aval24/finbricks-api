@@ -6,6 +6,7 @@ namespace Api;
 
 use Api\Exceptions\ApiException;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 
 class ApiClient
