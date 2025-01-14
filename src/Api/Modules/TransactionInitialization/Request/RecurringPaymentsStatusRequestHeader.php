@@ -13,9 +13,7 @@ class RecurringPaymentsStatusRequestHeader implements RequestHeaderInterface
         //$this->validate();
     }
 
-    private function validate(): void
-    {
-    }
+    //private function validate(): void {}
 
     /**
      * @return array
@@ -27,4 +25,3 @@ class RecurringPaymentsStatusRequestHeader implements RequestHeaderInterface
         ];
     }
 }
-

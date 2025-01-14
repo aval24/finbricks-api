@@ -1,10 +1,10 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use Api\ApiResponse;
 use Api\Exceptions\ApiException;
-use Psr\Http\Message\ResponseInterface;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
 class ApiResponseTest extends TestCase

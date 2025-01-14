@@ -17,8 +17,7 @@ class TransactionsRequest extends ApiRequest
     public function __construct(
         RequestHeaderInterface $transactionsRequestHeader,
         RequestBodyInterface $transactionsRequestBody
-    )
-    {
+    ) {
         parent::__construct($transactionsRequestHeader, $transactionsRequestBody);
     }
 

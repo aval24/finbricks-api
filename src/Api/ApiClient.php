@@ -6,7 +6,6 @@ namespace Api;
 
 use Api\Exceptions\ApiException;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 
 class ApiClient
@@ -26,7 +25,7 @@ class ApiClient
     public function send(ApiRequestInterface $apiRequest): ApiResponseInterface
     {
         try {
-                $response = $this->httpClient->request(
+            $response = $this->httpClient->request(
                 $apiRequest->getMethod(),
                 $apiRequest->getEndpoint(),
                 $apiRequest->getOptions()

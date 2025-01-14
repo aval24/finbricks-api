@@ -7,5 +7,7 @@ use Api\ResponseInterface;
 
 class RecurringPaymentsInitResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse){}
+    public function __construct(protected ApiResponseInterface $apiResponse)
+    {
+    }
 }

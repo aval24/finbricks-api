@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Api\Modules\UserManagement\Request;
 
-use Api\Exceptions\ApiException;
+use Api\ApiResponseInterface;
 use Api\Modules\UserManagement\Request\TokenRequest;
 use Api\Modules\UserManagement\Request\TokenRequestBody;
 use Api\Modules\UserManagement\Request\TokenRequestHeader;
-use Api\ApiResponseInterface;
 use Api\Modules\UserManagement\Response\TokenResponse;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;

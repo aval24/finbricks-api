@@ -31,9 +31,9 @@ class RecurringPaymentsStatusRequestBody implements RequestBodyInterface
      */
     public function toArray(): array
     {
-        return array_filter([
+        return [
             'merchantId' => $this->merchantId,
             'merchantTransactionId' => $this->merchantTransactionId,
-        ], fn($value) => $value !== null);
+        ];
     }
 }

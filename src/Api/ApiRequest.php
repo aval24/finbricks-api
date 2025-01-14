@@ -5,13 +5,24 @@ declare(strict_types=1);
 namespace Api;
 
 use Api\Exceptions\ApiException;
-use Api\Modules\UserManagement\Request\AuthRequestBody;
-use Api\Modules\UserManagement\Request\AuthRequestHeader;
 use Api\Utils\Util;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 
 abstract class ApiRequest implements ApiRequestInterface
 {
+    /**
+     * @var string
+     */
+    protected string $endpoint;
+
+    /**
+     * @var string
+     */
+    protected string $method;
+
+    /**
+     * @var array
+     */
     protected array $options;
 
     /**
@@ -20,8 +31,7 @@ abstract class ApiRequest implements ApiRequestInterface
     public function __construct(
         RequestHeaderInterface $authRequestHeader,
         RequestBodyInterface $authRequestBody,
-    )
-    {
+    ) {
         $this->options = $this->prepareOptions($authRequestHeader, $authRequestBody);
     }
 
@@ -61,26 +71,28 @@ abstract class ApiRequest implements ApiRequestInterface
 
     /**
      * todo refactor
-     * @param AuthRequestHeader $authRequestHeader
-     * @param AuthRequestBody $authRequestBody
+     * @param RequestHeaderInterface $authRequestHeader
+     * @param RequestBodyInterface $authRequestBody
      * @return array
      * @throws ApiException
      */
     private function prepareOptions(
         RequestHeaderInterface $authRequestHeader,
         RequestBodyInterface $authRequestBody
-    ): array
-    {
+    ): array {
         $body = $authRequestBody->toArray();
 
-        if ($this->method === 'GET') {
-            $payload = ['uri' => $this->endpoint . '?' . http_build_query($body), 'body' => ''];
-            $key = 'query';
-        } elseif ($this->method === 'POST') {
-            $payload = ['uri' =>  $this->endpoint, 'body' => json_encode($body)];
-            $key = 'json';
-        } else {
-            throw new ApiException('Not implemented');
+        switch ($this->method) {
+            case 'GET':
+                $payload = ['uri' => $this->endpoint . '?' . http_build_query($body), 'body' => ''];
+                $key = 'query';
+                break;
+            case 'POST':
+                $payload = ['uri' =>  $this->endpoint, 'body' => json_encode($body)];
+                $key = 'json';
+                break;
+            default:
+                throw new ApiException('Not implemented');
         }
 
         $headers = $authRequestHeader->toArray() + ['JWS-Signature' => Util::jwt($payload)];

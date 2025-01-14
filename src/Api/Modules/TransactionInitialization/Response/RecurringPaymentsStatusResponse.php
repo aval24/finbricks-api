@@ -14,10 +14,12 @@ class RecurringPaymentsStatusResponse implements ResponseInterface
     public static array $resultCodes = [
         self::IN_PROGRESS,
         self::ACCEPTED,
-        self::REJECTED
+        self::REJECTED,
     ];
 
-    public function __construct(protected ApiResponseInterface $apiResponse){}
+    public function __construct(protected ApiResponseInterface $apiResponse)
+    {
+    }
 
     /**
      * @return string

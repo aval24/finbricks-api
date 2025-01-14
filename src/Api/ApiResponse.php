@@ -38,4 +38,3 @@ class ApiResponse implements ApiResponseInterface
         return $this->data;
     }
 }
-

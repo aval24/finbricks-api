@@ -13,8 +13,7 @@ class AccountsWithBalanceRequestBody implements RequestBodyInterface
         protected readonly string $merchantId, //* uuid
         protected readonly ?string $clientId, //<=100 chars
         protected readonly ?string $operationId, //uuid
-    )
-    {
+    ) {
         $this->validate();
     }
 
@@ -43,6 +42,6 @@ class AccountsWithBalanceRequestBody implements RequestBodyInterface
             'merchantId' => $this->merchantId,
             'clientId' => $this->clientId,
             'operationId' => $this->operationId,
-        ], fn($value) => $value !== null);
+        ], fn ($value) => $value !== null);
     }
 }

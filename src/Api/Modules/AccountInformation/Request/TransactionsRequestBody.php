@@ -14,8 +14,7 @@ class TransactionsRequestBody implements RequestBodyInterface
         protected readonly string $bankAccountId, //y3FeaZyvItso-clhpV18X60orMVgulFdBx7
         protected readonly ?string $operationId, //
         protected readonly ?string $clientId, //<=100 chars
-    )
-    {
+    ) {
         $this->validate();
     }
 
@@ -49,6 +48,6 @@ class TransactionsRequestBody implements RequestBodyInterface
             'bankAccountId' => $this->bankAccountId,
             'operationId' => $this->operationId,
             'clientId' => $this->clientId,
-        ], fn($value) => $value !== null);
+        ], fn ($value) => $value !== null);
     }
 }

@@ -8,13 +8,12 @@ use Api\RequestHeaderInterface;
 
 class RecurringPaymentsInitRequestHeader implements RequestHeaderInterface
 {
-    public function __construct() {
+    public function __construct()
+    {
         //$this->validate();
     }
 
-    private function validate(): void
-    {
-    }
+    //private function validate(): void {}
 
     /**
      * @return array
@@ -26,4 +25,3 @@ class RecurringPaymentsInitRequestHeader implements RequestHeaderInterface
         ];
     }
 }
-

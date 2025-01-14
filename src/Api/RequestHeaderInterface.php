@@ -6,4 +6,5 @@ namespace Api;
 
 interface RequestHeaderInterface
 {
+    public function toArray(): array;
 }

@@ -13,6 +13,7 @@ $finder = Finder::create()
 
 $config = new Config();
 return $config
+    ->setParallelConfig(PhpCsFixer\Runner\Parallel\ParallelConfigFactory::detect())
     ->setFinder($finder)
     ->setRiskyAllowed(true) // Разрешить использование "рискованных" правил
     ->setRules([

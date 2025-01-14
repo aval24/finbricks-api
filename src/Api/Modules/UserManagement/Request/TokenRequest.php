@@ -17,8 +17,7 @@ class TokenRequest extends ApiRequest
     public function __construct(
         RequestHeaderInterface $tokenRequestHeader,
         RequestBodyInterface   $tokenRequestBody
-    )
-    {
+    ) {
         parent::__construct($tokenRequestHeader, $tokenRequestBody);
     }
 

@@ -6,8 +6,8 @@ namespace Api\Utils;
 
 use Firebase\JWT\JWT;
 
-class Util {
-
+class Util
+{
     /**
      * @param $payload
      * @return string

@@ -7,7 +7,9 @@ use Api\ResponseInterface;
 
 class AuthResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse){}
+    public function __construct(public ApiResponseInterface $apiResponse)
+    {
+    }
 
     /**
      * @return array

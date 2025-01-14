@@ -24,7 +24,7 @@ class TokenRequestBody implements RequestBodyInterface
         if (empty($this->clientId)) {
             throw new \InvalidArgumentException('Client ID is required.');
         }
-  }
+    }
 
     /**
      * @return array
@@ -34,6 +34,6 @@ class TokenRequestBody implements RequestBodyInterface
         return array_filter([
             'clientId' => $this->clientId,
             'merchantId' => $this->merchantId,
-        ], fn($value) => $value !== null);
+        ], fn ($value) => $value !== null);
     }
 }

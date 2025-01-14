@@ -59,8 +59,8 @@ class AuthRequestBody implements RequestBodyInterface
             'paymentProvider' => $this->paymentProvider,
             'scope' => $this->scope,
             'callbackUrl' => $this->callbackUrl,
-            'psuId' => $this->psuId
-        ], fn($value) => $value !== null);
+            'psuId' => $this->psuId,
+        ], fn ($value) => $value !== null);
     }
 
     public function getMerchantId(): string

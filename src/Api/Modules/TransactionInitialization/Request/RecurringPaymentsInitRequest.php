@@ -17,8 +17,7 @@ class RecurringPaymentsInitRequest extends ApiRequest
     public function __construct(
         RequestHeaderInterface $authRequestHeader,
         RequestBodyInterface $authRequestBody
-    )
-    {
+    ) {
         parent::__construct(
             $authRequestHeader,
             $authRequestBody,

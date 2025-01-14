@@ -12,8 +12,7 @@ class AccountsRequestBody implements RequestBodyInterface
         protected readonly string $paymentProvider, //KB
         protected readonly ?string $merchantId, //* uuid
         protected readonly ?string $clientId, //<=100 chars
-    )
-    {
+    ) {
         $this->validate();
     }
 
@@ -37,6 +36,6 @@ class AccountsRequestBody implements RequestBodyInterface
             'paymentProvider' => $this->paymentProvider,
             'merchantId' => $this->merchantId,
             'clientId' => $this->clientId,
-        ], fn($value) => $value !== null);
+        ], fn ($value) => $value !== null);
     }
 }

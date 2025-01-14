@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use PHPUnit\Framework\TestCase;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsInitRequestBody;
+use PHPUnit\Framework\TestCase;
 
 class RecurringPaymentsInitRequestBodyTest extends TestCase
 {
@@ -109,7 +109,7 @@ class RecurringPaymentsInitRequestBodyTest extends TestCase
             'modeDue' => RecurringPaymentsInitRequestBody::DUE_DAY_OF_MONTH,
             'lastExecutionDate' => new \DateTimeImmutable('2025-12-31'),
             'maxIterations' => 12,
-            'initiatorName' => 'John Doe'
+            'initiatorName' => 'John Doe',
         ];
 
         $this->assertEquals($expectedArray, $requestBody->toArray());

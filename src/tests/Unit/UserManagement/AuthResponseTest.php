@@ -2,14 +2,14 @@
 
 namespace Api\Modules\UserManagement\Tests;
 
-use Api\Modules\UserManagement\Response\AuthResponse;
 use Api\ApiResponseInterface;
-use PHPUnit\Framework\TestCase;
+use Api\Modules\UserManagement\Response\AuthResponse;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 class AuthResponseTest extends TestCase
 {
-    private MockObject $apiResponseMock;
+    private ApiResponseInterface|MockObject $apiResponseMock;
 
     protected function setUp(): void
     {
@@ -18,7 +18,6 @@ class AuthResponseTest extends TestCase
 
     public function testGetRedirectUrl(): void
     {
-        // Mock the data returned by the ApiResponseInterface
         $this->apiResponseMock->method('getData')->willReturn(['redirectUrl' => 'https://example.com']);
 
         $authResponse = new AuthResponse($this->apiResponseMock);

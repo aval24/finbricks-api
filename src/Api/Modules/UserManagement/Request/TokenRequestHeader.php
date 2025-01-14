@@ -14,9 +14,7 @@ class TokenRequestHeader implements RequestHeaderInterface
         //$this->validate();
     }
 
-    private function validate(): void
-    {
-    }
+    //private function validate(): void {}
 
     /**
      * @return array
@@ -28,4 +26,3 @@ class TokenRequestHeader implements RequestHeaderInterface
         ];
     }
 }
-

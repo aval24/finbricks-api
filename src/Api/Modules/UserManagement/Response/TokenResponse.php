@@ -10,7 +10,9 @@ use Api\ResponseInterface;
  */
 class TokenResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse) {}
+    public function __construct(protected ApiResponseInterface $apiResponse)
+    {
+    }
 
     /**
      * @return bool

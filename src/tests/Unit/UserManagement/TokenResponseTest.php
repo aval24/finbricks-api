@@ -2,8 +2,8 @@
 
 namespace Tests\Api\Modules\UserManagement\Response;
 
-use Api\Modules\UserManagement\Response\TokenResponse;
 use Api\ApiResponseInterface;
+use Api\Modules\UserManagement\Response\TokenResponse;
 use PHPUnit\Framework\TestCase;
 
 class TokenResponseTest extends TestCase

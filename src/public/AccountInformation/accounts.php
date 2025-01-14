@@ -5,11 +5,11 @@ declare(strict_types=1);
 require __DIR__ . '/../../../vendor/autoload.php';
 $config = require __DIR__ . '/../../../src/config/config.php';
 
+use Api\ApiClient;
+use Api\Exceptions\ApiException;
 use Api\Modules\AccountInformation\Request\AccountsRequest;
 use Api\Modules\AccountInformation\Request\AccountsRequestBody;
 use Api\Modules\AccountInformation\Request\AccountsRequestHeader;
-use Api\ApiClient;
-use Api\Exceptions\ApiException;
 use Api\Modules\AccountInformation\Response\AccountsResponse;
 
 $apiClient = new ApiClient($config['base_uri']);
@@ -33,6 +33,3 @@ try {
 } catch (InvalidArgumentException|ApiException|Exception $e) {
     var_dump($e->getMessage());
 }
-
-
-

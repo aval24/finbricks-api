@@ -161,7 +161,7 @@ class RecurringPaymentsInitRequestBody implements RequestBodyInterface
             'modeDue' => $this->modeDue,
             'lastExecutionDate' => $this->lastExecutionDate,
             'maxIterations' => $this->maxIterations,
-            'initiatorName' => $this->initiatorName
-        ], fn($value) => $value !== null);
+            'initiatorName' => $this->initiatorName,
+        ], fn ($value) => $value !== null);
     }
 }

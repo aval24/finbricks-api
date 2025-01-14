@@ -47,4 +47,3 @@ class AuthRequestHeader implements RequestHeaderInterface
         return $this->psuUserAgent;
     }
 }
-

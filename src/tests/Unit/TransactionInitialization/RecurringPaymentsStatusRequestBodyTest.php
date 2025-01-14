@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use PHPUnit\Framework\TestCase;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsStatusRequestBody;
+use PHPUnit\Framework\TestCase;
 
 class RecurringPaymentsStatusRequestBodyTest extends TestCase
 {
