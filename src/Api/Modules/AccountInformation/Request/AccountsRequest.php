@@ -4,6 +4,7 @@ namespace Api\Modules\AccountInformation\Request;
 
 use Api\ApiRequest;
 use Api\ApiResponseInterface;
+use Api\Modules\AccountInformation\Response\AccountsResponse;
 use Api\RequestBodyInterface;
 use Api\RequestHeaderInterface;
 use Api\ResponseInterface;
@@ -27,6 +28,6 @@ class AccountsRequest extends ApiRequest
      */
     public function getResponseInstance(ApiResponseInterface $response): ResponseInterface
     {
-        return new AccountResponse($response);
+        return new AccountsResponse($response);
     }
 }

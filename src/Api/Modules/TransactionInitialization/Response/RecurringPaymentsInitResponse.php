@@ -2,13 +2,10 @@
 
 namespace Api\Modules\TransactionInitialization\Response;
 
-use Api\ApiResponse;
 use Api\ApiResponseInterface;
+use Api\ResponseInterface;
 
-class RecurringPaymentsInitResponse extends ApiResponse implements ApiResponseInterface
+readonly class RecurringPaymentsInitResponse implements ResponseInterface
 {
-    public function dump()
-    {
-        var_dump($this->getData());
-    }
+    public function __construct(public ApiResponseInterface $apiResponse){}
 }

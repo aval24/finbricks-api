@@ -2,23 +2,34 @@
 
 namespace Api\Modules\TransactionInitialization\Request;
 
-use Api\Modules\TransactionInitialization\Response\RecurringPaymentsInitResponse;
 use Api\ApiRequest;
-use Api\ApiRequestInterface;
 use Api\ApiResponseInterface;
-use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
+use Api\Modules\TransactionInitialization\Response\RecurringPaymentsInitResponse;
+use Api\RequestBodyInterface;
+use Api\RequestHeaderInterface;
+use Api\ResponseInterface;
 
-class RecurringPaymentsInitRequest extends ApiRequest implements ApiRequestInterface
+class RecurringPaymentsInitRequest extends ApiRequest
 {
-    private array $data = [];
+    protected string $endpoint = '/recurringPayments/init';
+    protected string $method = 'POST';
 
-    public function __construct(array $data = [])
+    public function __construct(
+        RequestHeaderInterface $authRequestHeader,
+        RequestBodyInterface $authRequestBody
+    )
     {
-        $this->data = $data;
-        parent::__construct('');
+        parent::__construct(
+            $authRequestHeader,
+            $authRequestBody,
+        );
     }
 
-    public function getResponseInstance(ResponseInterface $response): ApiResponseInterface
+    /**
+     * @param ApiResponseInterface $response
+     * @return ResponseInterface
+     */
+    public function getResponseInstance(ApiResponseInterface $response): ResponseInterface
     {
         return new RecurringPaymentsInitResponse($response);
     }
