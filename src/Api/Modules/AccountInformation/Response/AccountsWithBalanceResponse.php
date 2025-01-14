@@ -10,7 +10,7 @@ use Api\ResponseInterface;
  */
 readonly class AccountsWithBalanceResponse implements ResponseInterface
 {
-    public function __construct(public ApiResponseInterface $apiResponse) {}
+    public function __construct(protected ApiResponseInterface $apiResponse) {}
 
     /**
      * @return array

@@ -17,9 +17,9 @@ class AuthRequestBodyTest extends TestCase
             psuId: 'test_psu_id'
         );
 
-        $this->assertEquals('1234-5678-91011-1213', $dto->merchantId);
-        $this->assertEquals('client_1', $dto->clientId);
-        $this->assertEquals('AISP', $dto->paymentProvider);
+        $this->assertEquals('1234-5678-91011-1213', $dto->getMerchantId());
+        $this->assertEquals('client_1', $dto->getClientId());
+        $this->assertEquals('AISP', $dto->getPaymentProvider());
     }
 
     public function testEmptyMerchantIdThrowsException(): void

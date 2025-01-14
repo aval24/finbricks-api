@@ -9,13 +9,13 @@ use Api\RequestBodyInterface;
 class AuthRequestBody implements RequestBodyInterface
 {
     public function __construct(
-        public string  $merchantId, //* uuid
-        public ?string $clientId, //<=100 chars
-        public string  $paymentProvider, //* one of /status/paymentProviders todo
-        public ?string $scope, //enum('AISP', 'AISP_PISP')
-        public ?string $callbackUrl,
-        public ?array  $accountIdentifications, //[] of objects
-        public ?string $psuId //* for providers: BRD_RO, RAIFFEISEN_RO, CIB_HU, RAIFFEISEN_HU.
+        protected string  $merchantId, //* uuid
+        protected ?string $clientId, //<=100 chars
+        protected string  $paymentProvider, //* one of /status/paymentProviders todo
+        protected ?string $scope, //enum('AISP', 'AISP_PISP')
+        protected ?string $callbackUrl,
+        protected ?array  $accountIdentifications, //[] of objects
+        protected ?string $psuId //* for providers: BRD_RO, RAIFFEISEN_RO, CIB_HU, RAIFFEISEN_HU.
     ) {
         $this->validate();
     }
@@ -62,4 +62,20 @@ class AuthRequestBody implements RequestBodyInterface
             'psuId' => $this->psuId
         ], fn($value) => $value !== null);
     }
+
+    public function getMerchantId(): string
+    {
+        return $this->merchantId;
+    }
+
+    public function getClientId(): string
+    {
+        return $this->clientId;
+    }
+
+    public function getPaymentProvider(): string
+    {
+        return $this->paymentProvider;
+    }
+
 }

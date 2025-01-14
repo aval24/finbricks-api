@@ -12,8 +12,8 @@ class AuthRequestHeaderTest extends TestCase
             psuUserAgent: 'Mozilla/5.0'
         );
 
-        $this->assertEquals('192.168.1.1', $dto->psuIpAddress);
-        $this->assertEquals('Mozilla/5.0', $dto->psuUserAgent);
+        $this->assertEquals('192.168.1.1', $dto->getPsuIpAddress());
+        $this->assertEquals('Mozilla/5.0', $dto->getPsuUserAgent());
     }
 
     public function testInvalidIpThrowsException(): void

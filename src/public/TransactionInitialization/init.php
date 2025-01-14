@@ -15,14 +15,14 @@ use Api\Modules\TransactionInitialization\Response\RecurringPaymentsInitResponse
 $apiClient = new ApiClient($config['base_uri']);
 
 try {
-    $header = new RecurringPaymentsInitRequestHeader('192.168.1.1', 'Mozilla/5.0');
+    $header = new RecurringPaymentsInitRequestHeader();
     $body = new RecurringPaymentsInitRequestBody(
             merchantId:  $config['merchantId'],
             merchantTransactionId: 'a5764857-ae35-34dc-8f25-a9c9e73aa898',
             amount: 100.5,
             debtorAccountIban: 'GB33BUKB20201555555555',
             creditorAccountIban: 'GB94BARC10201530093459',
-            description: 'some_descriotion',
+            description: 'some_description',
             variableSymbol: 'abc',
             specificSymbol: 'def',
             constantSymbol: 'xyz',

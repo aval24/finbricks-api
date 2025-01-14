@@ -5,7 +5,7 @@ namespace Api\Modules\TransactionInitialization\Response;
 use Api\ApiResponseInterface;
 use Api\ResponseInterface;
 
-readonly class RecurringPaymentsInitResponse implements ResponseInterface
+class RecurringPaymentsInitResponse implements ResponseInterface
 {
-    public function __construct(public ApiResponseInterface $apiResponse){}
+    public function __construct(protected ApiResponseInterface $apiResponse){}
 }

@@ -9,8 +9,8 @@ use Api\RequestHeaderInterface;
 class AuthRequestHeader implements RequestHeaderInterface
 {
     public function __construct(
-        public string $psuIpAddress,
-        public string $psuUserAgent
+        protected string $psuIpAddress,
+        protected string $psuUserAgent
     ) {
         $this->validate();
     }
@@ -35,6 +35,16 @@ class AuthRequestHeader implements RequestHeaderInterface
             'PSU-IP-Address' => $this->psuIpAddress,
             'PSU-User-Agent' => $this->psuUserAgent,
         ];
+    }
+
+    public function getPsuIpAddress(): string
+    {
+        return $this->psuIpAddress;
+    }
+
+    public function getPsuUserAgent(): string
+    {
+        return $this->psuUserAgent;
     }
 }
 

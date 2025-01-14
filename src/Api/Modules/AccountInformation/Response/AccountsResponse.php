@@ -10,7 +10,7 @@ use Api\ResponseInterface;
  */
 readonly class AccountsResponse implements ResponseInterface
 {
-    public function __construct(public ApiResponseInterface $apiResponse) {}
+    public function __construct(protected ApiResponseInterface $apiResponse) {}
 
     /**
      * @return bool

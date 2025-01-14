@@ -56,27 +56,27 @@ class RecurringPaymentsInitRequestBody implements RequestBodyInterface
     ];
 
     public function __construct(
-        public string $merchantId, //* uuid
-        public string $merchantTransactionId, //* uuid
-        public float $amount, //* todo
-        public string $debtorAccountIban, //*
-        public string $creditorAccountIban, //*
-        public ?string $description,    // <= 140 characters
-        public ?string $variableSymbol, // <= 10 characters
-        public ?string $specificSymbol, // <= 10 characters
-        public ?string $constantSymbol, // <= 10 characters
-        public ?string $callbackUrl,
-        public ?string $clientId,       //<=100 chars
-        public ?string $operationId,    //uuid
-        public \DateTimeImmutable $requestedExecutionDate, //* todo check if date
-        public ?string $interval, //*
+        protected string $merchantId, //* uuid
+        protected string $merchantTransactionId, //* uuid
+        protected float $amount, //* todo
+        protected string $debtorAccountIban, //*
+        protected string $creditorAccountIban, //*
+        protected ?string $description,    // <= 140 characters
+        protected ?string $variableSymbol, // <= 10 characters
+        protected ?string $specificSymbol, // <= 10 characters
+        protected ?string $constantSymbol, // <= 10 characters
+        protected ?string $callbackUrl,
+        protected ?string $clientId,       //<=100 chars
+        protected ?string $operationId,    //uuid
+        protected \DateTimeImmutable $requestedExecutionDate, //* todo check if date
+        protected ?string $interval, //*
         //1-7 for WEEKLY interval, 1-28 for MONTHLY, 1-2 for BI_MONTHLY, 1-3 for QUARTERLY, 1-6 for HALFYEARLY, 1-12 for YEARLY
-        public ?int $intervalDue, //todo check ranges
-        public string $mode, //*
-        public string $modeDue, //*
-        public ?\DateTimeImmutable $lastExecutionDate, //todo check if date
-        public ?int $maxIterations,
-        public ?string $initiatorName,
+        protected ?int $intervalDue, //todo check ranges
+        protected string $mode, //*
+        protected string $modeDue, //*
+        protected ?\DateTimeImmutable $lastExecutionDate, //todo check if date
+        protected ?int $maxIterations,
+        protected ?string $initiatorName,
     ) {
         $this->validate();
     }

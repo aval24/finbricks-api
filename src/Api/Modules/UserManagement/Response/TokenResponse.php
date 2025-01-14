@@ -8,9 +8,9 @@ use Api\ResponseInterface;
 /**
  * The service returns multiple records if there are authentications for different providers (banks) or scopes within one clientId.
  */
-readonly class TokenResponse implements ResponseInterface
+class TokenResponse implements ResponseInterface
 {
-    public function __construct(public ApiResponseInterface $apiResponse) {}
+    public function __construct(protected ApiResponseInterface $apiResponse) {}
 
     /**
      * @return bool

@@ -9,11 +9,11 @@ use Api\RequestBodyInterface;
 class TransactionsRequestBody implements RequestBodyInterface
 {
     public function __construct(
-        public readonly string $merchantId, //* uuid
-        public readonly string $paymentProvider, //KB
-        public readonly string $bankAccountId, //y3FeaZyvItso-clhpV18X60orMVgulFdBx7
-        public readonly ?string $operationId, //
-        public readonly ?string $clientId, //<=100 chars
+        protected readonly string $merchantId, //* uuid
+        protected readonly string $paymentProvider, //KB
+        protected readonly string $bankAccountId, //y3FeaZyvItso-clhpV18X60orMVgulFdBx7
+        protected readonly ?string $operationId, //
+        protected readonly ?string $clientId, //<=100 chars
     )
     {
         $this->validate();

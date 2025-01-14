@@ -9,10 +9,10 @@ use Api\RequestBodyInterface;
 class AccountsWithBalanceRequestBody implements RequestBodyInterface
 {
     public function __construct(
-        public readonly string $paymentProvider, //KB
-        public readonly string $merchantId, //* uuid
-        public readonly ?string $clientId, //<=100 chars
-        public readonly ?string $operationId, //uuid
+        protected readonly string $paymentProvider, //KB
+        protected readonly string $merchantId, //* uuid
+        protected readonly ?string $clientId, //<=100 chars
+        protected readonly ?string $operationId, //uuid
     )
     {
         $this->validate();

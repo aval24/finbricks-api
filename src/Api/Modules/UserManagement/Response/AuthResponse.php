@@ -5,9 +5,9 @@ namespace Api\Modules\UserManagement\Response;
 use Api\ApiResponseInterface;
 use Api\ResponseInterface;
 
-readonly class AuthResponse implements ResponseInterface
+class AuthResponse implements ResponseInterface
 {
-    public function __construct(public ApiResponseInterface $apiResponse){}
+    public function __construct(protected ApiResponseInterface $apiResponse){}
 
     /**
      * @return array

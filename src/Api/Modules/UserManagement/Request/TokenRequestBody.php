@@ -9,8 +9,8 @@ use Api\RequestBodyInterface;
 class TokenRequestBody implements RequestBodyInterface
 {
     public function __construct(
-        public string  $merchantId, //* uuid
-        public ?string $clientId, //<=100 chars
+        protected string  $merchantId, //* uuid
+        protected ?string $clientId, //<=100 chars
     ) {
         $this->validate();
     }

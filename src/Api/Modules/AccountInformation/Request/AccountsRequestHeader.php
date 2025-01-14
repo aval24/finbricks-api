@@ -8,8 +8,8 @@ use Api\RequestHeaderInterface;
 
 class AccountsRequestHeader implements RequestHeaderInterface
 {
-    public function __construct(
-    ) {
+    public function __construct()
+    {
         //$this->validate();
     }
 
