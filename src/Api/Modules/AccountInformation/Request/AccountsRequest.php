@@ -8,6 +8,7 @@ use Api\Modules\AccountInformation\Response\AccountsResponse;
 use Api\RequestBodyInterface;
 use Api\RequestHeaderInterface;
 use Api\ResponseInterface;
+use Api\Utils\Util;
 
 class AccountsRequest extends ApiRequest
 {
@@ -16,9 +17,10 @@ class AccountsRequest extends ApiRequest
 
     public function __construct(
         RequestHeaderInterface $tokenRequestHeader,
-        RequestBodyInterface $tokenRequestBody
+        RequestBodyInterface $tokenRequestBody,
+        Util $util
     ) {
-        parent::__construct($tokenRequestHeader, $tokenRequestBody);
+        parent::__construct($tokenRequestHeader, $tokenRequestBody, $util);
     }
 
     /**

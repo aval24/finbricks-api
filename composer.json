@@ -1,5 +1,5 @@
 {
-  "name": "coolcredit/finbrics-api",
+  "name": "sdk/finbrics-api",
   "description": "Api for Finbrics",
   "type": "library",
   "autoload": {

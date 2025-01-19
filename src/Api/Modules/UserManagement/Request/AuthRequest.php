@@ -8,6 +8,7 @@ use Api\Modules\UserManagement\Response\AuthResponse;
 use Api\RequestBodyInterface;
 use Api\RequestHeaderInterface;
 use Api\ResponseInterface;
+use Api\Utils\Util;
 
 class AuthRequest extends ApiRequest
 {
@@ -16,11 +17,13 @@ class AuthRequest extends ApiRequest
 
     public function __construct(
         RequestHeaderInterface $authRequestHeader,
-        RequestBodyInterface $authRequestBody
+        RequestBodyInterface $authRequestBody,
+        Util $util
     ) {
         parent::__construct(
             $authRequestHeader,
             $authRequestBody,
+            $util
         );
     }
 

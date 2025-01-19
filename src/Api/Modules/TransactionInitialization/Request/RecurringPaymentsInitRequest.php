@@ -8,6 +8,7 @@ use Api\Modules\TransactionInitialization\Response\RecurringPaymentsInitResponse
 use Api\RequestBodyInterface;
 use Api\RequestHeaderInterface;
 use Api\ResponseInterface;
+use Api\Utils\Util;
 
 class RecurringPaymentsInitRequest extends ApiRequest
 {
@@ -16,11 +17,13 @@ class RecurringPaymentsInitRequest extends ApiRequest
 
     public function __construct(
         RequestHeaderInterface $authRequestHeader,
-        RequestBodyInterface $authRequestBody
+        RequestBodyInterface $authRequestBody,
+        Util $util
     ) {
         parent::__construct(
             $authRequestHeader,
             $authRequestBody,
+            $util
         );
     }
 

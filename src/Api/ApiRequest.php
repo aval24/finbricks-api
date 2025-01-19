@@ -29,8 +29,9 @@ abstract class ApiRequest implements ApiRequestInterface
      * @throws ApiException
      */
     public function __construct(
-        RequestHeaderInterface $authRequestHeader,
-        RequestBodyInterface $authRequestBody,
+        protected RequestHeaderInterface $authRequestHeader,
+        protected RequestBodyInterface $authRequestBody,
+        protected Util $util
     ) {
         $this->options = $this->prepareOptions($authRequestHeader, $authRequestBody);
     }
@@ -70,7 +71,6 @@ abstract class ApiRequest implements ApiRequestInterface
     }
 
     /**
-     * todo refactor
      * @param RequestHeaderInterface $authRequestHeader
      * @param RequestBodyInterface $authRequestBody
      * @return array
@@ -95,7 +95,7 @@ abstract class ApiRequest implements ApiRequestInterface
                 throw new ApiException('Not implemented');
         }
 
-        $headers = $authRequestHeader->toArray() + ['JWS-Signature' => Util::jwt($payload)];
+        $headers = $authRequestHeader->toArray() + ['JWS-Signature' => $this->util->jwt($payload)];
 
         return ['headers' => $headers, $key => $body];
     }

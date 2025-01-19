@@ -3,25 +3,30 @@
 declare(strict_types=1);
 
 require __DIR__ . '/../../../vendor/autoload.php';
-$config = require __DIR__ . '/../../../src/config/config.php';
 
 use Api\ApiClient;
+use Api\Config\Config;
 use Api\Exceptions\ApiException;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsStatusRequest;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsStatusRequestBody;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsStatusRequestHeader;
 use Api\Modules\TransactionInitialization\Response\RecurringPaymentsStatusResponse;
+use Api\Utils\Util;
 
-$apiClient = new ApiClient($config['base_uri']);
+$configFile = __DIR__ . '/../../../src/config/config.php';
 
 try {
+    $config = new Config($configFile);
+    $utils = new Util($config);
+    $apiClient = new ApiClient($config->get('base_uri'));
+
     $header = new RecurringPaymentsStatusRequestHeader();
     $body = new RecurringPaymentsStatusRequestBody(
-        merchantId: $config['merchantId'], //*
+        merchantId: $config->get('merchantId'), //*
         merchantTransactionId: 'a5764857-ae35-34dc-8f25-a9c9e73aa898',
     );
 
-    $request = new RecurringPaymentsStatusRequest($header, $body);
+    $request = new RecurringPaymentsStatusRequest($header, $body, $utils);
     $apiResponse = $apiClient->send($request);
     var_dump($apiResponse->getStatusCode());
 

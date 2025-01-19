@@ -3,26 +3,31 @@
 declare(strict_types=1);
 
 require __DIR__ . '/../../../vendor/autoload.php';
-$config = require __DIR__ . '/../../../src/config/config.php';
 
 use Api\ApiClient;
+use Api\Config\Config;
 use Api\Exceptions\ApiException;
 use Api\Modules\AccountInformation\Request\AccountsRequest;
 use Api\Modules\AccountInformation\Request\AccountsRequestBody;
 use Api\Modules\AccountInformation\Request\AccountsRequestHeader;
 use Api\Modules\AccountInformation\Response\AccountsResponse;
+use Api\Utils\Util;
 
-$apiClient = new ApiClient($config['base_uri']);
+$configFile = __DIR__ . '/../../../src/config/config.php';
 
 try {
+    $config = new Config($configFile);
+    $utils = new Util($config);
+    $apiClient = new ApiClient($config->get('base_uri'));
+
     $accountsRequestHeader = new AccountsRequestHeader();
     $accountsRequestBody = new AccountsRequestBody(
         paymentProvider: 'MOCK_COBS', //*
-        merchantId: $config['merchantId'], //*
+        merchantId: $config->get('merchantId'), //*
         clientId: '64a17eea-cd4c-4717-8831-4ecc38434738',//*
     );
 
-    $tokenRequest = new AccountsRequest($accountsRequestHeader, $accountsRequestBody);
+    $tokenRequest = new AccountsRequest($accountsRequestHeader, $accountsRequestBody, $utils);
     $apiResponse = $apiClient->send($tokenRequest);
     var_dump($apiResponse->getStatusCode());
 

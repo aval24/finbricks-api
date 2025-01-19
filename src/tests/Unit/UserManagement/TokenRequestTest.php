@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Tests\Api\Modules\UserManagement\Request;
 
 use Api\ApiResponseInterface;
+use Api\Config\Config;
 use Api\Modules\UserManagement\Request\TokenRequest;
 use Api\Modules\UserManagement\Request\TokenRequestBody;
 use Api\Modules\UserManagement\Request\TokenRequestHeader;
 use Api\Modules\UserManagement\Response\TokenResponse;
+use Api\Utils\Util;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
@@ -45,7 +47,9 @@ class TokenRequestTest extends TestCase
     {
         $header = new TokenRequestHeader();
         $body = new TokenRequestBody('123e4567-e89b-12d3-a456-426614174000', 'TestClientId');
-        $tokenRequest = new TokenRequest($header, $body);
+        $util = new Util(new Config('src/config/config.php'));
+
+        $tokenRequest = new TokenRequest($header, $body, $util);
 
         $apiResponseMock = $this->createMock(ApiResponseInterface::class);
 

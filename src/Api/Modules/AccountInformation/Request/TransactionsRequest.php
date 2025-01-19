@@ -8,6 +8,7 @@ use Api\Modules\AccountInformation\Response\TransactionsResponse;
 use Api\RequestBodyInterface;
 use Api\RequestHeaderInterface;
 use Api\ResponseInterface;
+use Api\Utils\Util;
 
 class TransactionsRequest extends ApiRequest
 {
@@ -16,9 +17,10 @@ class TransactionsRequest extends ApiRequest
 
     public function __construct(
         RequestHeaderInterface $transactionsRequestHeader,
-        RequestBodyInterface $transactionsRequestBody
+        RequestBodyInterface $transactionsRequestBody,
+        Util $util
     ) {
-        parent::__construct($transactionsRequestHeader, $transactionsRequestBody);
+        parent::__construct($transactionsRequestHeader, $transactionsRequestBody, $util);
     }
 
     /**

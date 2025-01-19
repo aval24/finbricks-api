@@ -3,21 +3,26 @@
 declare(strict_types=1);
 
 require __DIR__ . '/../../../vendor/autoload.php';
-$config = require __DIR__ . '/../../../src/config/config.php';
 
 use Api\ApiClient;
+use Api\Config\Config;
 use Api\Exceptions\ApiException;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsInitRequest;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsInitRequestBody;
 use Api\Modules\TransactionInitialization\Request\RecurringPaymentsInitRequestHeader;
 use Api\Modules\TransactionInitialization\Response\RecurringPaymentsInitResponse;
+use Api\Utils\Util;
 
-$apiClient = new ApiClient($config['base_uri']);
+$configFile = __DIR__ . '/../../../src/config/config.php';
 
 try {
+    $config = new Config($configFile);
+    $utils = new Util($config);
+    $apiClient = new ApiClient($config->get('base_uri'));
+
     $header = new RecurringPaymentsInitRequestHeader();
     $body = new RecurringPaymentsInitRequestBody(
-        merchantId:  $config['merchantId'],
+        merchantId:  $config->get('merchantId'),
         merchantTransactionId: 'a5764857-ae35-34dc-8f25-a9c9e73aa898',
         amount: 100.5,
         debtorAccountIban: 'GB33BUKB20201555555555',
@@ -39,7 +44,7 @@ try {
         initiatorName: 'init'
     );
 
-    $request = new RecurringPaymentsInitRequest($header, $body);
+    $request = new RecurringPaymentsInitRequest($header, $body, $utils);
     $apiResponse = $apiClient->send($request);
     var_dump($apiResponse->getStatusCode());
 
