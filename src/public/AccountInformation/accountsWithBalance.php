@@ -35,6 +35,8 @@ try {
     $accountsWithBalanceResponse = new AccountsWithBalanceResponse($apiResponse);
     var_dump($accountsWithBalanceResponse->getAccounts());
 
-} catch (InvalidArgumentException|ApiException|Exception $e) {
-    var_dump($e->getMessage());
+} catch (ApiException $e) {
+    var_dump($e->toArray());
+} catch (InvalidArgumentException|Exception $e) {
+    var_dump($e);
 }

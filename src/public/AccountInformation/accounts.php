@@ -35,6 +35,8 @@ try {
     var_dump($tokenResponse->clientHasAccounts());
     var_dump($tokenResponse->getClientAccounts());
 
-} catch (InvalidArgumentException|ApiException|Exception $e) {
-    var_dump($e->getMessage());
+} catch (ApiException $e) {
+    var_dump($e->toArray());
+} catch (InvalidArgumentException|Exception $e) {
+    var_dump($e);
 }

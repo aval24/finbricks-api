@@ -40,6 +40,8 @@ try {
     var_dump($authResponse->getRedirectUrl());
     var_dump($authResponse->getOperationId());
 
-} catch (InvalidArgumentException|ApiException|Exception $e) {
-    var_dump($e->getMessage());
+} catch (ApiException $e) {
+    var_dump($e->toArray());
+} catch (InvalidArgumentException|Exception $e) {
+    var_dump($e);
 }

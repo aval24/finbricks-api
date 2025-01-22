@@ -34,7 +34,17 @@ class ApiClient
             return $apiRequest->getApiResponseInstance($response);
 
         } catch (GuzzleException $e) {
-            throw new ApiException($e->getMessage());
+
+            if ($e->getResponse() === null) {
+                throw new ApiException('No response', 0, 500);
+            }
+
+            $responseBody = json_decode($e->getResponse()->getBody()->getContents(), true);
+
+            $code = $responseBody['code'] ?? 'Code not found';
+            $message = $responseBody['message'] ?? 'Message not found';
+
+            throw new ApiException($message, $code, $e->getCode());
         }
     }
 }

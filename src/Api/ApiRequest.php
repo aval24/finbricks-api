@@ -92,7 +92,7 @@ abstract class ApiRequest implements ApiRequestInterface
                 $key = 'json';
                 break;
             default:
-                throw new ApiException('Not implemented');
+                throw new ApiException('Not implemented', 0, 500);
         }
 
         $headers = $authRequestHeader->toArray() + ['JWS-Signature' => $this->util->jwt($payload)];

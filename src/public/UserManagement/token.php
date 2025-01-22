@@ -34,6 +34,8 @@ try {
     var_dump($tokenResponse->clientHasAuthentications());
     var_dump($tokenResponse->getClientAuthentications());
 
-} catch (InvalidArgumentException|ApiException|Exception $e) {
-    var_dump($e->getMessage());
+} catch (ApiException $e) {
+    var_dump($e->toArray());
+} catch (InvalidArgumentException|Exception $e) {
+    var_dump($e);
 }

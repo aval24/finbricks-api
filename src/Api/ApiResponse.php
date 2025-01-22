@@ -16,9 +16,6 @@ class ApiResponse implements ApiResponseInterface
     public function __construct(PsrResponseInterface $response)
     {
         $this->statusCode = $response->getStatusCode();
-        if ($this->statusCode !== 200) { //todo process other status codes properly
-            throw new ApiException('Api Error');
-        }
         $this->data = json_decode($response->getBody()->getContents(), true);
     }
 

@@ -51,6 +51,8 @@ try {
     $response = new RecurringPaymentsInitResponse($apiResponse);
     var_dump($response);
 
-} catch (InvalidArgumentException|ApiException|Exception $e) {
-    var_dump($e->getMessage());
+} catch (ApiException $e) {
+    var_dump($e->toArray());
+} catch (InvalidArgumentException|Exception $e) {
+    var_dump($e);
 }
