@@ -1,6 +1,6 @@
 {
-  "name": "sdk/finbrics-api",
-  "description": "Api for Finbrics",
+  "name": "sdk/finbricks-api",
+  "description": "Api for Finbricks",
   "type": "library",
   "autoload": {
     "psr-4": {

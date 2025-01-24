@@ -1,4 +1,4 @@
-# finbriks-api
+# finbricks-api
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.tando.cz/general/finbriks-api.git
+git remote add origin https://gitlab.tando.cz/general/finbricks-api.git
 git branch -M master
 git push -uf origin master
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.tando.cz/general/finbriks-api/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.tando.cz/general/finbricks-api/-/settings/integrations)
 
 ## Collaborate with your team
 
