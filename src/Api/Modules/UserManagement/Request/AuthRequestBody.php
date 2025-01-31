@@ -30,7 +30,7 @@ class AuthRequestBody implements RequestBodyInterface
             throw new \InvalidArgumentException('Payment Provider is required.');
         }
 
-        if (!filter_var($this->callbackUrl, FILTER_VALIDATE_URL)) {
+        if ($this->callbackUrl !== null && !filter_var($this->callbackUrl, FILTER_VALIDATE_URL)) {
             throw new \InvalidArgumentException('Invalid callback URL.');
         }
 

@@ -26,7 +26,7 @@ class ApiException extends \Exception
         return [
             'code' => $this->code,
             'httpCode' => $this->httpStatus,
-            'message' => $this->message
+            'message' => $this->message,
         ];
     }
 }

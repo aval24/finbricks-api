@@ -11,6 +11,7 @@ class TokenRequestBody implements RequestBodyInterface
     public function __construct(
         protected string  $merchantId, //* uuid
         protected ?string $clientId, //<=100 chars
+        protected ?string $provider, //<= 50 characters, KB
     ) {
         $this->validate();
     }
@@ -34,6 +35,7 @@ class TokenRequestBody implements RequestBodyInterface
         return array_filter([
             'clientId' => $this->clientId,
             'merchantId' => $this->merchantId,
+            'provider' => $this->provider,
         ], fn ($value) => $value !== null);
     }
 }

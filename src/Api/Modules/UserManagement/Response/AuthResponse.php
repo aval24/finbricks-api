@@ -12,18 +12,18 @@ class AuthResponse implements ResponseInterface
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getRedirectUrl(): array
+    public function getRedirectUrl(): string
     {
-        return ['redirectUrl' => $this->apiResponse->getData()['redirectUrl']];
+        return $this->apiResponse->getData()['redirectUrl'];
     }
 
     /**
-     * @return array
+     * @return ?string
      */
-    public function getOperationId(): array
+    public function getOperationId(): ?string
     {
-        return ['operationId' => $this->apiResponse->getData()['operationId'] ?? null];
+        return $this->apiResponse->getData()['operationId'] ?? null;
     }
 }
