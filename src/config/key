@@ -1,9 +1,4 @@
-<?php
-
-return [
-    'base_uri' => 'https://api.sandbox.finbricks.com',
-    'merchantId' => 'e030db16-00dc-4f6e-9755-c063a1144766',
-    'key' => '-----BEGIN PRIVATE KEY-----
+-----BEGIN PRIVATE KEY-----
 MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQCanPWsI8ubv9twff64TxkOw/4J
 m71jx2gq12vF50VHBE7s4zipj77WfoKFU3SwfeLlTWpxbWtSa2Du9ZdWEEmxFo82EshijKfwpjx1
 i2eqlmgc98SER4+zhUwutiMt5ex8U3Zyk++bvwImWDGkh8ypRKQlWKaXU6/yxGP0bPlDTQSlx9EB
@@ -47,5 +42,3 @@ z3W9DKqAXrQ/kdzx9C66LqYNS0REXx/LRexJ1Ts8dYThfBUeyPpcyAsAEGVi1xlpek+nqanM0syr
 Vff+s1G6O2v1UGYfSsQTvB4MhqvQdI/dKUADQi8+jDIj2ZJjiVyNWunVPHz7wS0PUnlKgRpnGYj8
 W9yz1RgLGS8WnUx++AiyFCUhRYIgUrAmoF4uVQ1uBWFyoORcLg==
 -----END PRIVATE KEY-----
-',
-];

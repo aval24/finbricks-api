@@ -36,4 +36,10 @@ class RecurringPaymentsStatusResponse implements ResponseInterface
     {
         return $this->apiResponse->getData()['finalBankStatus'];
     }
+
+    public function getData(): array
+    {
+        return $this->apiResponse->getData();
+    }
+
 }

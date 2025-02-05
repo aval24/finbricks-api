@@ -13,16 +13,19 @@ use Api\Modules\UserManagement\Request\AuthRequestHeader;
 use Api\Modules\UserManagement\Response\AuthResponse;
 use Api\Utils\Util;
 
-$configFile = __DIR__ . '/../../../src/config/config.php';
-
 try {
-    $config = new Config($configFile);
+    $config = new Config(
+        baseUri: 'https://api.sandbox.finbricks.com',
+        merchantId: 'e030db16-00dc-4f6e-9755-c063a1144766',
+        key: file_get_contents(__DIR__ . '/../../../src/config/key')
+    );
+
     $utils = new Util($config);
-    $apiClient = new ApiClient($config->get('base_uri'));
+    $apiClient = new ApiClient($config->getBaseUri());
 
     $authRequestHeader = new AuthRequestHeader('192.168.1.1', 'Mozilla/5.0');
     $authRequestBody = new AuthRequestBody(
-        merchantId: $config->get('merchantId'), //*
+        merchantId: $config->getMerchantId(), //*
         //clientId: '64a17eea-cd4c-4717-8831-4ecc38434738',//*
         clientId: null,
         paymentProvider: 'MOCK_COBS', //*

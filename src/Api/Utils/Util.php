@@ -20,10 +20,10 @@ class Util
     {
         $jwt = JWT::encode(
             $payload,
-            $this->config->get('key'),
+            $this->config->getKey(),
             'RS256',
             null,
-            ['kid' => $this->config->get('merchantId')]
+            ['kid' => $this->config->getMerchantId()]
         );
 
         list($header, , $signature) = explode('.', $jwt);

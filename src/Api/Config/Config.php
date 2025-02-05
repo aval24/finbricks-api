@@ -4,22 +4,34 @@ namespace Api\Config;
 
 class Config
 {
-    private array $config;
-
-    /**
-     * @param string $configPath
-     */
-    public function __construct(string $configPath)
-    {
-        $this->config = require $configPath;
+    public function __construct(
+        private readonly string $baseUri,
+        private readonly string $merchantId,
+        private readonly string $key
+    ) {
     }
 
     /**
-     * @param string $key
      * @return string
      */
-    public function get(string $key): string
+    public function getBaseUri(): string
     {
-        return $this->config[$key];
+        return $this->baseUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMerchantId(): string
+    {
+        return $this->merchantId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->key;
     }
 }

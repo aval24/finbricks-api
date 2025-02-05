@@ -13,18 +13,21 @@ use Api\Modules\TransactionInitialization\Request\RecurringPaymentsInitRequestHe
 use Api\Modules\TransactionInitialization\Response\RecurringPaymentsInitResponse;
 use Api\Utils\Util;
 
-$configFile = __DIR__ . '/../../../src/config/config.php';
-
 try {
-    $config = new Config($configFile);
+    $config = new Config(
+        baseUri: 'https://api.sandbox.finbricks.com',
+        merchantId: 'e030db16-00dc-4f6e-9755-c063a1144766',
+        key: file_get_contents(__DIR__ . '/../../../src/config/key')
+    );
+
     $utils = new Util($config);
-    $apiClient = new ApiClient($config->get('base_uri'));
+    $apiClient = new ApiClient($config->getBaseUri());
 
     $header = new RecurringPaymentsInitRequestHeader();
     $body = new RecurringPaymentsInitRequestBody(
-        merchantId:  $config->get('merchantId'),
+        merchantId:  $config->getMerchantId(),
         merchantTransactionId: 'a5764857-ae35-34dc-8f25-a9c9e73aa898',
-        amount: 100.5,
+        amount: '100.5',
         debtorAccountIban: 'GB33BUKB20201555555555',
         creditorAccountIban: 'GB94BARC10201530093459',
         description: 'some_description',

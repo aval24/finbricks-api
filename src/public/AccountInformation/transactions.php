@@ -13,16 +13,19 @@ use Api\Modules\AccountInformation\Request\TransactionsRequestHeader;
 use Api\Modules\AccountInformation\Response\TransactionsResponse;
 use Api\Utils\Util;
 
-$configFile = __DIR__ . '/../../../src/config/config.php';
-
 try {
-    $config = new Config($configFile);
+    $config = new Config(
+        baseUri: 'https://api.sandbox.finbricks.com',
+        merchantId: 'e030db16-00dc-4f6e-9755-c063a1144766',
+        key: file_get_contents(__DIR__ . '/../../../src/config/key')
+    );
+
     $utils = new Util($config);
-    $apiClient = new ApiClient($config->get('base_uri'));
+    $apiClient = new ApiClient($config->getBaseUri());
 
     $transactionsRequestHeader = new TransactionsRequestHeader();
     $transactionsRequestBody = new TransactionsRequestBody(
-        merchantId: $config->get('merchantId'), //*
+        merchantId: $config->getMerchantId(), //*
         paymentProvider: 'MOCK_COBS', //*
         bankAccountId: '10037187', // API payment account identifier from the response to a query on the list of accounts.
         operationId: '3051932a-fdd2-48fa-b330-7e7d41535969',

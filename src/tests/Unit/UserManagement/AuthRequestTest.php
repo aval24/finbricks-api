@@ -26,70 +26,13 @@ class AuthRequestTest extends TestCase
             psuId: null
         );
 
-        $testPrivateKey = '
------BEGIN PRIVATE KEY-----
-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
------END PRIVATE KEY-----
-';
-
         $configMock = $this->createMock(Api\Config\Config::class);
-        $configMock->method('get')
-            ->willReturnMap([
-                ['merchantId', 'e030db16-00dc-4f6e-9755-c063a1144766'],
-                ['key', $testPrivateKey],
-            ]);
-
-        //var_dump($configMock->get('key'));die;
-
+        $configMock->method('getMerchantId')->willReturn('e030db16-00dc-4f6e-9755-c063a1144766');
+        $configMock->method('getKey')->willReturn('key');
 
         $util = new Util($configMock);
 
-        $request = new AuthRequest(
-            authRequestHeader: $header,
-            authRequestBody: $body,
-            util: $util
-        );
+        $request = new AuthRequest(authRequestHeader: $header, authRequestBody: $body, util: $util);
 
         $this->assertEquals('/v2/auth/authenticate', $request->getEndpoint());
         $this->assertEquals('POST', $request->getMethod());
@@ -112,7 +55,11 @@ W9yz1RgLGS8WnUx++AiyFCUhRYIgUrAmoF4uVQ1uBWFyoORcLg==
             psuId: 'test_psu_id'
         );
 
-        $util = new Util(new Api\Config\Config('src/config/config.php'));
+        $util = new Util(new Api\Config\Config(
+            baseUri: 'http://example.com/api',
+            merchantId: 'e030db16-00dc-4f6e-9755-c063a1144766',
+            key: 'some key',
+        ));
 
         $request = new AuthRequest(
             authRequestHeader: $header,

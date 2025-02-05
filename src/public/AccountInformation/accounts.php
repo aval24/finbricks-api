@@ -13,17 +13,20 @@ use Api\Modules\AccountInformation\Request\AccountsRequestHeader;
 use Api\Modules\AccountInformation\Response\AccountsResponse;
 use Api\Utils\Util;
 
-$configFile = __DIR__ . '/../../../src/config/config.php';
-
 try {
-    $config = new Config($configFile);
+    $config = new Config(
+        baseUri: 'https://api.sandbox.finbricks.com',
+        merchantId: 'e030db16-00dc-4f6e-9755-c063a1144766',
+        key: file_get_contents(__DIR__ . '/../../../src/config/key')
+    );
+
     $utils = new Util($config);
-    $apiClient = new ApiClient($config->get('base_uri'));
+    $apiClient = new ApiClient($config->getBaseUri());
 
     $accountsRequestHeader = new AccountsRequestHeader();
     $accountsRequestBody = new AccountsRequestBody(
         paymentProvider: 'MOCK_COBS', //*
-        merchantId: $config->get('merchantId'), //*
+        merchantId: $config->getMerchantId(), //*
         clientId: '64a17eea-cd4c-4717-8831-4ecc38434738',//*
     );
 
