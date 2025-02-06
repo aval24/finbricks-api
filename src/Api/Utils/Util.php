@@ -12,6 +12,7 @@ class Util
     public function __construct(protected Config $config)
     {
     }
+
     /**
      * @param $payload
      * @return string
