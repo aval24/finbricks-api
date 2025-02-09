@@ -1,17 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Api\Modules\AccountInformation\Response;
 
 use Api\ApiResponseInterface;
 use Api\ResponseInterface;
 
-/**
- * List of user's accounts
- */
-readonly class AccountsWithBalanceResponse implements ResponseInterface
+class AccountsWithBalanceResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse)
+    public function __construct(protected ApiResponseInterface $apiResponse, protected array $accounts)
     {
+        $this->accounts = array_map(fn ($data) => new AccountsWithBalanceResponseDTO(
+            id: $data['id'],
+            accountName: $data['accountName'],
+            productName: $data['productName'],
+            balance: (float) $data['balance'],
+            currency: $data['currency'],
+            balanceType: $data['balanceType'],
+            creditDebitIndicator: $data['creditDebitIndicator'],
+            pispSuitable: (bool) $data['pispSuitable'],
+            ownersNames: $data['ownersNames']
+        ), $this->apiResponse->getData());
     }
 
     /**
@@ -19,6 +29,6 @@ readonly class AccountsWithBalanceResponse implements ResponseInterface
      */
     public function getAccounts(): array
     {
-        return $this->apiResponse->getData();
+        return $this->accounts;
     }
 }
