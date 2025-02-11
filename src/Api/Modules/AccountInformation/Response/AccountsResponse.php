@@ -8,7 +8,7 @@ use Api\ResponseInterface;
 /**
  * List of user's accounts
  */
-readonly class AccountsResponse implements ResponseInterface
+class AccountsResponse implements ResponseInterface
 {
     public function __construct(protected ApiResponseInterface $apiResponse)
     {

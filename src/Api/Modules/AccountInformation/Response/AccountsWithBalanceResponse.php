@@ -9,7 +9,7 @@ use Api\ResponseInterface;
 
 class AccountsWithBalanceResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse, protected array $accounts)
+    public function __construct(protected ApiResponseInterface $apiResponse, protected array $accounts = [])
     {
         $this->accounts = array_map(fn ($data) => new AccountsWithBalanceResponseDTO(
             id: $data['id'],

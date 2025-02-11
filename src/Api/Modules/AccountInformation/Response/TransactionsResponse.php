@@ -8,7 +8,7 @@ use Api\ResponseInterface;
 /**
  * User's account transactions
  */
-readonly class TransactionsResponse implements ResponseInterface
+class TransactionsResponse implements ResponseInterface
 {
     public function __construct(protected ApiResponseInterface $apiResponse)
     {

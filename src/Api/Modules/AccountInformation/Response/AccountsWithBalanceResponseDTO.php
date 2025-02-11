@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Api\Modules\AccountInformation\Response;
 
-readonly class AccountsWithBalanceResponseDTO
+class AccountsWithBalanceResponseDTO
 {
     public function __construct(
         private string $id,
