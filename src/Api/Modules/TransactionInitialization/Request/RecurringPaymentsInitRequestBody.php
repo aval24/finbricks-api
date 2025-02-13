@@ -58,7 +58,7 @@ class RecurringPaymentsInitRequestBody implements RequestBodyInterface
     public function __construct(
         protected string $merchantId, //* uuid
         protected string $merchantTransactionId, //* uuid
-        protected float $amount, //* todo
+        protected string $amount, //* todo
         protected string $debtorAccountIban, //*
         protected string $creditorAccountIban, //*
         protected ?string $description,    // <= 140 characters
