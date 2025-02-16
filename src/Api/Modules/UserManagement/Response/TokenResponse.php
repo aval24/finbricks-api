@@ -10,8 +10,16 @@ use Api\ResponseInterface;
  */
 class TokenResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse)
+    public function __construct(protected ApiResponseInterface $apiResponse, public array $authentications = [])
     {
+        $this->authentications = array_map(fn ($data) => new TokenResponseDTO(
+            clientId: $data['clientId'],
+            scope: $data['scope'],
+            provider: $data['provider'],
+            validFrom: $data['validFrom'],
+            validTo: $data['validTo'],
+            stronglyAuthenticatedTo: $data['stronglyAuthenticatedTo'] ?? null,
+        ), $this->apiResponse->getData());
     }
 
     /**
@@ -19,7 +27,7 @@ class TokenResponse implements ResponseInterface
      */
     public function clientHasAuthentications(): bool
     {
-        return !empty($this->apiResponse->getData());
+        return !empty($this->authentications);
     }
 
     /**
@@ -27,6 +35,6 @@ class TokenResponse implements ResponseInterface
      */
     public function getClientAuthentications(): array
     {
-        return $this->apiResponse->getData();
+        return $this->authentications;
     }
 }
