@@ -15,7 +15,7 @@ class AccountsWithBalanceResponse implements ResponseInterface
             id: $data['id'],
             accountName: $data['accountName'],
             productName: $data['productName'],
-            balance: $data['balance'],
+            balance: (string) $data['balance'],
             currency: $data['currency'],
             balanceType: $data['balanceType'],
             creditDebitIndicator: $data['creditDebitIndicator'],
