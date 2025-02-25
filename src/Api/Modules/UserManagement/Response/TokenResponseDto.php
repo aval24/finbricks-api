@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Api\Modules\UserManagement\Response;
 
-class TokenResponseDTO
+class TokenResponseDto
 {
     public function __construct(
         public string $clientId,

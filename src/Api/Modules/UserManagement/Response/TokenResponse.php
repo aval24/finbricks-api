@@ -12,7 +12,7 @@ class TokenResponse implements ResponseInterface
 {
     public function __construct(protected ApiResponseInterface $apiResponse, public array $authentications = [])
     {
-        $this->authentications = array_map(fn ($data) => new TokenResponseDTO(
+        $this->authentications = array_map(fn ($data) => new TokenResponseDto(
             clientId: $data['clientId'],
             scope: $data['scope'],
             provider: $data['provider'],
