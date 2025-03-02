@@ -3,15 +3,17 @@
 namespace Api\Modules\AccountInformation\Response;
 
 use Api\ApiResponseInterface;
+use Api\Modules\AccountInformation\Response\Dto\TransactionDtoFactory;
 use Api\ResponseInterface;
 
-/**
- * User's account transactions
- */
 class TransactionsResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse)
+    public function __construct(protected ApiResponseInterface $apiResponse, protected array $transactions = [])
     {
+        $this->transactions = array_map(
+            fn ($item) => TransactionDtoFactory::fromArray($item),
+            $this->apiResponse->getData()['transactions']
+        );
     }
 
     /**
@@ -19,6 +21,6 @@ class TransactionsResponse implements ResponseInterface
      */
     public function getTransactions(): array
     {
-        return $this->apiResponse->getData();
+        return $this->transactions;
     }
 }
