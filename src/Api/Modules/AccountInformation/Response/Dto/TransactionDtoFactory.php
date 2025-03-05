@@ -14,7 +14,7 @@ class TransactionDtoFactory
         );
 
         $bookingDate = new TransactionResponseBookingDateDto(
-            $data['bookingDate']['date'] ? new \DateTime($data['bookingDate']['date']) : null,
+            !empty($data['bookingDate']['date']) ? new \DateTime($data['bookingDate']['date']) : null,
         );
 
         $valueDate = new TransactionResponseValueDateDto(
