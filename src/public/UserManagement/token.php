@@ -27,7 +27,7 @@ try {
     $tokenRequestBody = new TokenRequestBody(
         merchantId: $config->getMerchantId(), //*
         clientId: '64a17eea-cd4c-4717-8831-4ecc38434738',//*
-        provider: null
+        servicer: null
     );
 
     $tokenRequest = new TokenRequest($tokenRequestHeader, $tokenRequestBody, $utils);

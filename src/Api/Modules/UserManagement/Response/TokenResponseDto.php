@@ -9,7 +9,7 @@ class TokenResponseDto
     public function __construct(
         public string $clientId,
         public string $scope,
-        public string $provider,
+        public string $servicer,
         public string $validFrom,
         public string $validTo,
         public ?string $stronglyAuthenticatedTo,

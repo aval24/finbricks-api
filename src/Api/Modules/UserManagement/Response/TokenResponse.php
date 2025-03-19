@@ -15,7 +15,7 @@ class TokenResponse implements ResponseInterface
         $this->authentications = array_map(fn ($data) => new TokenResponseDto(
             clientId: $data['clientId'],
             scope: $data['scope'],
-            provider: $data['provider'],
+            servicer: $data['provider'],
             validFrom: $data['validFrom'],
             validTo: $data['validTo'],
             stronglyAuthenticatedTo: $data['stronglyAuthenticatedTo'] ?? null,
