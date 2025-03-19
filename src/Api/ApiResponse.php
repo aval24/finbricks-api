@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 class ApiResponse implements ApiResponseInterface
 {
     private int $statusCode;
-    private array $data;
+    private ?array $data;
 
     /**
      * @throws ApiException
