@@ -11,5 +11,11 @@ class BankInfoResponse implements ResponseInterface
     {
     }
 
-    // define api
+    /**
+     * @return array
+     */
+    public function getData(): array
+    {
+        return $this->apiResponse->getData();
+    }
 }
