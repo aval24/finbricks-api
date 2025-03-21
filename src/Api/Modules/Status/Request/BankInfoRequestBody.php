@@ -10,6 +10,7 @@ class BankInfoRequestBody implements RequestBodyInterface
 {
     public function __construct(
         protected readonly ?string $merchantId, //* uuid
+        protected readonly ?string $countryCode,
     ) {
         $this->validate();
     }
@@ -28,6 +29,7 @@ class BankInfoRequestBody implements RequestBodyInterface
     {
         return array_filter([
             'merchantId' => $this->merchantId,
+            'countryCode' => $this->countryCode,
         ], fn ($value) => $value !== null);
     }
 }
