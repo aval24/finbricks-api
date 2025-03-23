@@ -12,6 +12,7 @@ class TransactionPlatformInitRequestBody implements RequestBodyInterface
         protected string $merchantId, //"c3073b9d-edd0-49f2-a28d-b7ded8ff9a8b"  *
         protected string $merchantTransactionId, //"e284d244-f2ce-4ee6-9ae3-27869cbd8d0f"  *
         protected string $amount, // 372.88 *
+        protected string $totalPrice, // 372.88 *
         // Debtor's account number in IBAN format. Can be null only with combination of MBANK Payment provider
         protected ?string $debtorAccountIban, //"CZ5508000000001234567899"
         protected string $creditorAccountIban, //"CZ5508000000001234567891" *
@@ -47,6 +48,10 @@ class TransactionPlatformInitRequestBody implements RequestBodyInterface
             throw new \InvalidArgumentException('Amount is required.');
         }
 
+        if (empty($this->totalPrice)) {
+            throw new \InvalidArgumentException('TotalPrice is required.');
+        }
+
         if (empty($this->debtorAccountIban)) {
             throw new \InvalidArgumentException('Debtor Account Iban is required.');
         }
@@ -65,6 +70,7 @@ class TransactionPlatformInitRequestBody implements RequestBodyInterface
             'merchantId' => $this->merchantId,
             'merchantTransactionId' => $this->merchantTransactionId,
             'amount' => $this->amount,
+            'totalPrice' => $this->totalPrice,
             'debtorAccountIban' => $this->debtorAccountIban,
             'creditorAccountIban' => $this->creditorAccountIban,
             'description' => $this->description,
