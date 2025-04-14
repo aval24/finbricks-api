@@ -66,7 +66,11 @@ class ApiClient
             'request_uri' => $apiRequest->getEndpoint(),
             'request_method' => $apiRequest->getMethod(),
             'status_code' => $apiResponse->getStatusCode(),
-            'request' => $apiRequest->getOptions()['body'] ?? null,
+            'request' => match ($apiRequest->getMethod()) {
+                'POST' => $apiRequest->getOptions()['json'] ?? null,
+                'GET' => $apiRequest->getOptions()['query'] ?? null,
+                default => null,
+            },
             'response' => $apiResponse->getData(),
         ]);
     }
