@@ -9,7 +9,7 @@ class AccountsWithBalanceResponseDto
     /** @param string[] $ownersNames */
     public function __construct(
         public string $id,
-        public string $accountName,
+        public ?string $accountName,
         public string $productName,
         public string $balance,
         public string $currency,

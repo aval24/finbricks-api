@@ -22,19 +22,19 @@ class AccountDtoFactory
         $relationship = isset($data['relationship']) ? new RelationshipDto($data['relationship']['isOwner']) : null;
 
         return new AccountsWithBalanceResponseDto(
-            $data['id'],
-            $data['accountName'],
-            $data['productName'],
-            (string) $data['balance'],
-            $data['currency'],
-            $data['balanceType'],
-            $data['creditDebitIndicator'],
-            $data['pispSuitable'],
-            $data['ownersNames'],
-            $identification,
-            $relationship,
-            new DateTime($data['dateTime']),
-            $data['bic']
+            id: $data['id'],
+            accountName: $data['accountName'] ?? null,
+            productName: $data['productName'],
+            balance: (string) $data['balance'],
+            currency: $data['currency'],
+            balanceType: $data['balanceType'],
+            creditDebitIndicator: $data['creditDebitIndicator'],
+            pispSuitable: $data['pispSuitable'],
+            ownersNames: $data['ownersNames'],
+            identification: $identification,
+            relationship: $relationship,
+            dateTime: new DateTime($data['dateTime']),
+            bic: $data['bic']
         );
     }
 }
