@@ -8,12 +8,16 @@ use Api\ResponseInterface;
 
 class TransactionsResponse implements ResponseInterface
 {
-    public function __construct(protected ApiResponseInterface $apiResponse, protected array $transactions = [])
+    public function __construct(protected ApiResponseInterface $apiResponse)
     {
-        $this->transactions = array_map(
-            fn ($item) => TransactionDtoFactory::fromArray($item),
-            $this->apiResponse->getData()['transactions']
-        );
+    }
+
+    /**
+     * @return array
+     */
+    public function getLinks(): array
+    {
+        return $this->apiResponse->getData()['links'] ?? [];
     }
 
     /**
@@ -21,6 +25,6 @@ class TransactionsResponse implements ResponseInterface
      */
     public function getTransactions(): array
     {
-        return $this->transactions;
+        return $this->apiResponse->getData()['transactions'];
     }
 }
