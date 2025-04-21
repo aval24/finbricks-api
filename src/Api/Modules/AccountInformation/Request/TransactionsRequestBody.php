@@ -14,6 +14,12 @@ class TransactionsRequestBody implements RequestBodyInterface
         protected readonly string $bankAccountId, //y3FeaZyvItso-clhpV18X60orMVgulFdBx7
         protected readonly ?string $operationId, //
         protected readonly ?string $clientId, //<=100 chars
+        protected readonly ?string $dateFrom,
+        protected readonly ?string $dateTo,
+        protected readonly ?string $currency,
+        protected readonly ?int $size,
+        protected readonly ?string $cursor,
+
     ) {
         $this->validate();
     }
@@ -48,6 +54,11 @@ class TransactionsRequestBody implements RequestBodyInterface
             'bankAccountId' => $this->bankAccountId,
             'operationId' => $this->operationId,
             'clientId' => $this->clientId,
+            'dateFrom' => $this->dateFrom,
+            'dateTo' => $this->dateTo,
+            'currency' => $this->currency,
+            'size' => $this->size,
+            'cursor' => $this->cursor,
         ], fn ($value) => $value !== null);
     }
 }
