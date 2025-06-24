@@ -8,6 +8,8 @@ mirror_to_github:
     - master
     - develop
     - tags
+  variables:
+    GITHUB_TOKEN: ${GITHUB_TOKEN}
   before_script:
     - apt-get update && apt-get install -y git
   script:
