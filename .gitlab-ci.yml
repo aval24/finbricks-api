@@ -1,0 +1,26 @@
+stages:
+  - mirror
+
+mirror_to_github:
+  stage: mirror
+  image: debian:bullseye
+  only:
+    - master
+    - develop
+    - tags
+  before_script:
+    - apt-get update && apt-get install -y git
+  script:
+    - git config --global user.name "aval24 Bot"
+    - git config --global user.email "dev@aval24.cz"
+    - git clone "$CI_REPOSITORY_URL" repo && cd repo
+    - |
+      git filter-branch --env-filter '
+        export GIT_AUTHOR_NAME="aval24 Bot"
+        export GIT_AUTHOR_EMAIL="dev@aval24.cz"
+        export GIT_COMMITTER_NAME="aval24 Bot"
+        export GIT_COMMITTER_EMAIL="dev@aval24.cz"
+      ' -- --all
+    - git remote add github https://aval24:${GITHUB_TOKEN}@github.com/aval24/finbricks-api.git
+    - git push --force --all github
+    - git push --force --tags github
