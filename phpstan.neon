@@ -1,0 +1,10 @@
+parameters:
+    level: 5
+    paths:
+        - src
+    ignoreErrors: []
+    reportUnmatchedIgnoredErrors: true
+    parallel:
+    		jobSize: 20
+    		maximumNumberOfProcesses: 32
+    		minimumNumberOfJobsPerProcess: 2

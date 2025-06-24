@@ -1,1 +1,1 @@
-# finbriks-api
+# finbricks-api
