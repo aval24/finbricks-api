@@ -23,6 +23,6 @@ mirror_to_github:
         export GIT_COMMITTER_NAME="aval24 Bot"
         export GIT_COMMITTER_EMAIL="dev@aval24.cz"
       ' -- --all
-    - git remote add github https://aval24:${GITHUB_TOKEN}@github.com/aval24/finbricks-api.git
+    - git remote add github https://x-access-token:${GITHUB_TOKEN}@github.com/aval24/finbricks-api.git
     - git push --force --all github
     - git push --force --tags github
