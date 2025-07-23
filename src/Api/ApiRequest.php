@@ -84,7 +84,7 @@ abstract class ApiRequest implements ApiRequestInterface
 
         switch ($this->method) {
             case 'GET':
-                $payload = ['uri' => $this->endpoint . '?' . http_build_query($body), 'body' => ''];
+                $payload = ['uri' => $this->endpoint . '?' . http_build_query($body, ''), 'body' => ''];
                 $key = 'query';
                 break;
             case 'POST':
