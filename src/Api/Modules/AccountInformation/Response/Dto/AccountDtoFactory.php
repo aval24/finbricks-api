@@ -11,8 +11,8 @@ class AccountDtoFactory
     public static function fromArray(array $data): AccountsWithBalanceResponseDto
     {
         $identification = new AccountIdentificationDto(
-            $data['identification']['accountNumber'],
-            $data['identification']['iban'],
+            $data['identification']['accountNumber'] ?? null,
+            $data['identification']['iban'] ?? null,
             array_map(
                 fn ($others) => new AccountIdentificationOthersDto($others['type'], $others['value']),
                 $data['identification']['others'] ?? []

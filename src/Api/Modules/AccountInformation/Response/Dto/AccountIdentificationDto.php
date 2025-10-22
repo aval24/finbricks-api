@@ -10,8 +10,8 @@ class AccountIdentificationDto
      * @param AccountIdentificationOthersDto[] $others
      */
     public function __construct(
-        public string $accountNumber,
-        public string $iban,
+        public ?string $accountNumber,
+        public ?string $iban,
         public array $others = []
     ) {
     }
