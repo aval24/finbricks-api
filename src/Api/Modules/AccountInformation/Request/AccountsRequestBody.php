@@ -10,8 +10,8 @@ class AccountsRequestBody implements RequestBodyInterface
 {
     public function __construct(
         protected readonly string $paymentProvider, //KB
-        protected readonly ?string $merchantId, //* uuid
-        protected readonly ?string $clientId, //<=100 chars
+        protected readonly ?string $merchantId = null, //* uuid
+        protected readonly ?string $clientId = null, //<=100 chars
     ) {
         $this->validate();
     }

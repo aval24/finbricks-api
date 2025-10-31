@@ -13,18 +13,18 @@ class TransactionPlatformInitRequestBody implements RequestBodyInterface
         protected string $merchantTransactionId, //"e284d244-f2ce-4ee6-9ae3-27869cbd8d0f"  *
         protected string $totalPrice, // 372.88 *
         // Debtor's account number in IBAN format. Can be null only with combination of MBANK Payment provider
-        protected ?string $debtorAccountIban, //"CZ5508000000001234567899"
+        protected ?string $debtorAccountIban = null, //"CZ5508000000001234567899"
         protected string $creditorAccountIban, //"CZ5508000000001234567891" *
-        protected ?string $description, // "Platba za energie",
-        protected ?string $variableSymbol, // "0123456789",
-        protected ?string $specificSymbol, // "0123456789",
-        protected ?string $constantSymbol,  // "0308",
-        protected ?string $callbackUrl, // "https://www.example.com/mycallbackurl",
-        protected ?string $clientId, // "0000001",
-        protected ?string $operationId, // "66c7aa87-fe24-411c-8bf2-6c3b7a73c25c",
-        protected ?string $instructionPriority, // "NORM", // NORM, INST
-        protected ?string $initiatorName, // "Podnikatel XY",
-        protected ?string $paymentProvider, // "TB_SK"
+        protected ?string $description = null, // "Platba za energie",
+        protected ?string $variableSymbol = null, // "0123456789",
+        protected ?string $specificSymbol = null, // "0123456789",
+        protected ?string $constantSymbol = null,  // "0308",
+        protected ?string $callbackUrl = null, // "https://www.example.com/mycallbackurl",
+        protected ?string $clientId = null, // "0000001",
+        protected ?string $operationId = null, // "66c7aa87-fe24-411c-8bf2-6c3b7a73c25c",
+        protected ?string $instructionPriority = null, // "NORM", // NORM, INST
+        protected ?string $initiatorName = null, // "Podnikatel XY",
+        protected ?string $paymentProvider = null, // "TB_SK"
     ) {
         $this->validate();
     }

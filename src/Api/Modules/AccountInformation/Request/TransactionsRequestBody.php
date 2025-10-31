@@ -12,13 +12,13 @@ class TransactionsRequestBody implements RequestBodyInterface
         protected readonly string $merchantId, //* uuid
         protected readonly string $paymentProvider, //KB
         protected readonly string $bankAccountId, //y3FeaZyvItso-clhpV18X60orMVgulFdBx7
-        protected readonly ?string $operationId, //
-        protected readonly ?string $clientId, //<=100 chars
-        protected readonly ?string $dateFrom,
-        protected readonly ?string $dateTo,
-        protected readonly ?string $currency,
-        protected readonly ?int $size,
-        protected readonly ?string $cursor,
+        protected readonly ?string $operationId = null, //
+        protected readonly ?string $clientId = null, //<=100 chars
+        protected readonly ?string $dateFrom = null,
+        protected readonly ?string $dateTo = null,
+        protected readonly ?string $currency = null,
+        protected readonly ?int $size = null,
+        protected readonly ?string $cursor = null,
 
     ) {
         $this->validate();

@@ -9,8 +9,8 @@ use Api\RequestBodyInterface;
 class BankInfoRequestBody implements RequestBodyInterface
 {
     public function __construct(
-        protected readonly ?string $merchantId, //* uuid
-        protected readonly ?string $countryCode,
+        protected readonly string $merchantId, //* uuid
+        protected readonly ?string $countryCode = null,
     ) {
         $this->validate();
     }
