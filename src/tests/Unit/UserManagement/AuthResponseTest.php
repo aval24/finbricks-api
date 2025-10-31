@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Modules\UserManagement\Tests;
+declare(strict_types=1);
 
 use Api\ApiResponseInterface;
 use Api\Modules\UserManagement\Response\AuthResponse;
@@ -22,7 +22,7 @@ class AuthResponseTest extends TestCase
 
         $authResponse = new AuthResponse($this->apiResponseMock);
 
-        $this->assertEquals(['redirectUrl' => 'https://example.com'], $authResponse->getRedirectUrl());
+        $this->assertEquals('https://example.com', $authResponse->getRedirectUrl());
     }
 
     public function testGetOperationIdWithOperationId(): void
@@ -32,7 +32,7 @@ class AuthResponseTest extends TestCase
 
         $authResponse = new AuthResponse($this->apiResponseMock);
 
-        $this->assertEquals(['operationId' => '12345'], $authResponse->getOperationId());
+        $this->assertEquals(12345, $authResponse->getOperationId());
     }
 
     public function testGetOperationIdWithoutOperationId(): void
@@ -42,6 +42,6 @@ class AuthResponseTest extends TestCase
 
         $authResponse = new AuthResponse($this->apiResponseMock);
 
-        $this->assertEquals(['operationId' => null], $authResponse->getOperationId());
+        $this->assertEquals(null, $authResponse->getOperationId());
     }
 }

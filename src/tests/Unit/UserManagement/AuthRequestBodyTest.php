@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Api\Modules\UserManagement\Request\AuthRequestBody;
 use PHPUnit\Framework\TestCase;
 

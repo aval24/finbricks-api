@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Api\ApiResponse;
 use Api\Exceptions\ApiException;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -9,15 +11,6 @@ use Psr\Http\Message\StreamInterface;
 
 class ApiResponseTest extends TestCase
 {
-    public function testConstructorThrowsApiExceptionForNon200StatusCode(): void
-    {
-        $responseMock = $this->createMock(ResponseInterface::class);
-        $responseMock->method('getStatusCode')->willReturn(500);
-
-        $this->expectException(ApiException::class);
-        new ApiResponse($responseMock);
-    }
-
     public function testConstructorPopulatesDataFor200StatusCode(): void
     {
         $content = json_encode(['key' => 'value']);

@@ -1,9 +1,8 @@
 <?php
 
-namespace Tests\Unit\Api\Modules\AccountInformation\Request;
+declare(strict_types=1);
 
 use Api\Modules\AccountInformation\Request\AccountsWithBalanceRequestBody;
-use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class AccountsWithBalanceRequestBodyTest extends TestCase

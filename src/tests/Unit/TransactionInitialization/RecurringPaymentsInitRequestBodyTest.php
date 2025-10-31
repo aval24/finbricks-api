@@ -12,7 +12,7 @@ class RecurringPaymentsInitRequestBodyTest extends TestCase
         $requestBody = new RecurringPaymentsInitRequestBody(
             merchantId: '123e4567-e89b-12d3-a456-426614174000',
             merchantTransactionId: '123e4567-e89b-12d3-a456-426614174001',
-            amount: 100.0,
+            amount: '100',
             debtorAccountIban: 'DE89370400440532013000',
             creditorAccountIban: 'DE89370400440532013001',
             description: 'Payment for services',
@@ -43,7 +43,7 @@ class RecurringPaymentsInitRequestBodyTest extends TestCase
         new RecurringPaymentsInitRequestBody(
             merchantId: '',
             merchantTransactionId: '123e4567-e89b-12d3-a456-426614174001',
-            amount: 100.0,
+            amount: '100',
             debtorAccountIban: 'DE89370400440532013000',
             creditorAccountIban: 'DE89370400440532013001',
             description: 'Payment for services',
@@ -69,7 +69,7 @@ class RecurringPaymentsInitRequestBodyTest extends TestCase
         $requestBody = new RecurringPaymentsInitRequestBody(
             merchantId: '123e4567-e89b-12d3-a456-426614174000',
             merchantTransactionId: '123e4567-e89b-12d3-a456-426614174001',
-            amount: 100.0,
+            amount: '100',
             debtorAccountIban: 'DE89370400440532013000',
             creditorAccountIban: 'DE89370400440532013001',
             description: 'Payment for services',

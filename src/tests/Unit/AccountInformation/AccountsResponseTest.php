@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Api\Modules\AccountInformation\Response;
+declare(strict_types=1);
 
 use Api\ApiResponseInterface;
 use Api\Modules\AccountInformation\Response\AccountsResponse;

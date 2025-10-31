@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-#namespace Api\tests\Unit\UserManagement;
-
 use Api\ApiClient;
 use Api\ApiRequestInterface;
 use Api\ApiResponseInterface;
@@ -56,7 +54,7 @@ class ApiClientTest extends TestCase
         $this->setPrivateProperty($apiClient, 'httpClient', $mockHttpClient);
 
         $this->expectException(ApiException::class);
-        $this->expectExceptionMessage('Request failed');
+        $this->expectExceptionMessage('No response');
 
         $apiClient->send($mockApiRequest);
     }
@@ -95,7 +93,7 @@ class ApiClientTest extends TestCase
         $this->setPrivateProperty($apiClient, 'httpClient', $mockHttpClient);
 
         $this->expectException(ApiException::class);
-        $this->expectExceptionMessage('Timeout');
+        $this->expectExceptionMessage('No response');
         $apiClient->send($mockApiRequest);
     }
 

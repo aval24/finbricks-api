@@ -1,9 +1,8 @@
 <?php
 
-namespace Tests\Unit\Api\Modules\AccountInformation\Request;
+declare(strict_types=1);
 
 use Api\Modules\AccountInformation\Request\TransactionsRequestBody;
-use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class TransactionsRequestBodyTest extends TestCase
@@ -15,7 +14,12 @@ class TransactionsRequestBodyTest extends TestCase
             'KB',
             'y3FeaZyvItso-clhpV18X60orMVgulFdBx7',
             'some-operation-id',
-            'some-client-id'
+            'some-client-id',
+            null,
+            null,
+            null,
+            null,
+            null,
         );
 
         $this->assertSame([
@@ -37,7 +41,12 @@ class TransactionsRequestBodyTest extends TestCase
             'KB',
             'y3FeaZyvItso-clhpV18X60orMVgulFdBx7',
             'some-operation-id',
-            'some-client-id'
+            'some-client-id',
+            null,
+            null,
+            null,
+            null,
+            null,
         );
     }
 
@@ -51,7 +60,12 @@ class TransactionsRequestBodyTest extends TestCase
             '',
             'y3FeaZyvItso-clhpV18X60orMVgulFdBx7',
             'some-operation-id',
-            'some-client-id'
+            'some-client-id',
+            null,
+            null,
+            null,
+            null,
+            null,
         );
     }
 
@@ -65,7 +79,12 @@ class TransactionsRequestBodyTest extends TestCase
             'KB',
             '',
             'some-operation-id',
-            'some-client-id'
+            'some-client-id',
+            null,
+            null,
+            null,
+            null,
+            null,
         );
     }
 
@@ -79,7 +98,12 @@ class TransactionsRequestBodyTest extends TestCase
             'KB',
             'y3FeaZyvItso-clhpV18X60orMVgulFdBx7',
             null,
-            null
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
         );
     }
 
@@ -90,7 +114,12 @@ class TransactionsRequestBodyTest extends TestCase
             'KB',
             'y3FeaZyvItso-clhpV18X60orMVgulFdBx7',
             'some-operation-id',
-            null
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
         );
 
         $this->assertSame([
@@ -105,7 +134,12 @@ class TransactionsRequestBodyTest extends TestCase
             'KB',
             'y3FeaZyvItso-clhpV18X60orMVgulFdBx7',
             null,
-            'some-client-id'
+            'some-client-id',
+            null,
+            null,
+            null,
+            null,
+            null,
         );
 
         $this->assertSame([

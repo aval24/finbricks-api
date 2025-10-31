@@ -19,7 +19,15 @@ class TokenResponseTest extends TestCase
 
     public function testClientHasAuthenticationsReturnsTrueWhenDataIsNotEmpty(): void
     {
-        $this->apiResponseMock->method('getData')->willReturn(['auth1', 'auth2']);
+        $this->apiResponseMock->method('getData')->willReturn([
+            [
+                'clientId' => 'some-client-id',
+                'scope' => 'pay',
+                'provider' => 'MOCK',
+                'validFrom' => '2020-01-01',
+                'validTo' => '2020-01-01',
+            ],
+        ]);
 
         $tokenResponse = new TokenResponse($this->apiResponseMock);
 
@@ -37,12 +45,28 @@ class TokenResponseTest extends TestCase
 
     public function testGetClientAuthenticationsReturnsDataFromApiResponse(): void
     {
-        $data = ['auth1', 'auth2'];
-        $this->apiResponseMock->method('getData')->willReturn($data);
+        $data = [
+            'clientId' => 'some-client-id',
+            'scope' => 'pay',
+            'provider' => 'MOCK',
+            'validFrom' => '2020-01-01',
+            'validTo' => '2021-01-01',
+            'stronglyAuthenticatedTo' => '2020-05-01',
+        ];
+
+        $this->apiResponseMock->method('getData')->willReturn([$data]);
 
         $tokenResponse = new TokenResponse($this->apiResponseMock);
 
-        $this->assertSame($data, $tokenResponse->getClientAuthentications());
+        /** @var \Api\Modules\UserManagement\Response\TokenResponseDto $dto */
+        $dto = $tokenResponse->getClientAuthentications()[0];
+
+        $this->assertSame($data['clientId'], $dto->clientId);
+        $this->assertSame($data['scope'], $dto->scope);
+        $this->assertSame($data['provider'], $dto->servicer);
+        $this->assertSame($data['validFrom'], $dto->validFrom);
+        $this->assertSame($data['validTo'], $dto->validTo);
+        $this->assertSame($data['stronglyAuthenticatedTo'], $dto->stronglyAuthenticatedTo);
     }
 
     public function testGetClientAuthenticationsReturnsEmptyArrayWhenNoData(): void
