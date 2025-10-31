@@ -16,13 +16,13 @@ class TransactionPlatformInitRequest extends ApiRequest
     protected string $method = 'POST';
 
     public function __construct(
-        RequestHeaderInterface $authRequestHeader,
-        RequestBodyInterface $authRequestBody,
+        RequestHeaderInterface $requestHeader,
+        RequestBodyInterface $requestBody,
         Util $util
     ) {
         parent::__construct(
-            $authRequestHeader,
-            $authRequestBody,
+            $requestHeader,
+            $requestBody,
             $util
         );
     }

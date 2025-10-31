@@ -16,11 +16,11 @@ class TransactionsRequest extends ApiRequest
     protected string $method = 'GET';
 
     public function __construct(
-        RequestHeaderInterface $transactionsRequestHeader,
-        RequestBodyInterface $transactionsRequestBody,
+        RequestHeaderInterface $requestHeader,
+        RequestBodyInterface $requestBody,
         Util $util
     ) {
-        parent::__construct($transactionsRequestHeader, $transactionsRequestBody, $util);
+        parent::__construct($requestHeader, $requestBody, $util);
     }
 
     /**

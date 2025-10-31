@@ -32,7 +32,7 @@ class AuthRequestTest extends TestCase
 
         $util = new Util($configMock);
 
-        $request = new AuthRequest(authRequestHeader: $header, authRequestBody: $body, util: $util);
+        $request = new AuthRequest(requestHeader: $header, requestBody: $body, util: $util);
 
         $this->assertEquals('/v2/auth/authenticate', $request->getEndpoint());
         $this->assertEquals('POST', $request->getMethod());
@@ -62,8 +62,8 @@ class AuthRequestTest extends TestCase
         ));
 
         $request = new AuthRequest(
-            authRequestHeader: $header,
-            authRequestBody: $body,
+            requestHeader: $header,
+            requestBody: $body,
             util: $util
         );
 

@@ -16,11 +16,11 @@ class AccountsWithBalanceRequest extends ApiRequest
     protected string $method = 'GET';
 
     public function __construct(
-        RequestHeaderInterface $tokenRequestHeader,
-        RequestBodyInterface $tokenRequestBody,
+        RequestHeaderInterface $requestHeader,
+        RequestBodyInterface $requestBody,
         Util $util
     ) {
-        parent::__construct($tokenRequestHeader, $tokenRequestBody, $util);
+        parent::__construct($requestHeader, $requestBody, $util);
     }
 
     /**

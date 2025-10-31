@@ -29,11 +29,11 @@ abstract class ApiRequest implements ApiRequestInterface
      * @throws ApiException
      */
     public function __construct(
-        protected RequestHeaderInterface $authRequestHeader,
-        protected RequestBodyInterface $authRequestBody,
+        protected RequestHeaderInterface $requestHeader,
+        protected RequestBodyInterface $requestBody,
         protected Util $util
     ) {
-        $this->options = $this->prepareOptions($authRequestHeader, $authRequestBody);
+        $this->options = $this->prepareOptions($requestHeader, $requestBody);
     }
 
     /**
