@@ -12,7 +12,7 @@ use Api\Utils\Util;
 
 class RecurringPaymentsStatusRequest extends ApiRequest
 {
-    protected string $endpoint = '/recurringPayments/status';
+    protected string $endpoint = '/recurring-payment/status';
     protected string $method = 'GET';
 
     public function __construct(

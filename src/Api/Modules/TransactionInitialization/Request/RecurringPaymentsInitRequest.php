@@ -12,7 +12,7 @@ use Api\Utils\Util;
 
 class RecurringPaymentsInitRequest extends ApiRequest
 {
-    protected string $endpoint = '/recurringPayments/init';
+    protected string $endpoint = '/recurring-payment/init';
     protected string $method = 'POST';
 
     public function __construct(
