@@ -5,17 +5,8 @@ declare(strict_types=1);
 namespace Api\Modules\TransactionInitialization\Request;
 
 use Api\BaseRequestHeader;
-use Api\RequestHeaderInterface;
 
-class RecurringPaymentsInitRequestHeader extends BaseRequestHeader implements RequestHeaderInterface
+class RecurringPaymentsInitRequestHeader extends BaseRequestHeader
 {
-    public function __construct(
-        protected string $psuIpAddress,
-        protected string $psuUserAgent,
-    ) {
-        parent::__construct(
-            psuIpAddress: $psuIpAddress,
-            psuUserAgent: $psuUserAgent,
-        );
-    }
+    //
 }
