@@ -2,7 +2,7 @@
 
 namespace Api;
 
-abstract class BaseRequestHeader implements RequestHeaderInterface
+class BaseRequestHeader implements RequestHeaderInterface
 {
     public function __construct(
         protected string $psuIpAddress,
