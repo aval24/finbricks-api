@@ -61,6 +61,9 @@ class RecurringPaymentsInitRequestBody implements RequestBodyInterface
         protected string $amount, //* todo
         protected string $debtorAccountIban, //*
         protected string $creditorAccountIban, //*
+        protected \DateTimeImmutable $requestedExecutionDate, //* todo check if date
+        protected string $mode, //*
+        protected string $modeDue, //*
         protected ?string $description = null,    // <= 140 characters
         protected ?string $variableSymbol = null, // <= 10 characters
         protected ?string $specificSymbol = null, // <= 10 characters
@@ -68,12 +71,9 @@ class RecurringPaymentsInitRequestBody implements RequestBodyInterface
         protected ?string $callbackUrl = null,
         protected ?string $clientId = null,       //<=100 chars
         protected ?string $operationId = null,    //uuid
-        protected \DateTimeImmutable $requestedExecutionDate, //* todo check if date
         protected ?string $interval = null, //*
         //1-7 for WEEKLY interval, 1-28 for MONTHLY, 1-2 for BI_MONTHLY, 1-3 for QUARTERLY, 1-6 for HALFYEARLY, 1-12 for YEARLY
         protected ?int $intervalDue = null, //todo check ranges
-        protected string $mode, //*
-        protected string $modeDue, //*
         protected ?\DateTimeImmutable $lastExecutionDate = null, //todo check if date
         protected ?int $maxIterations = null,
         protected ?string $initiatorName = null,

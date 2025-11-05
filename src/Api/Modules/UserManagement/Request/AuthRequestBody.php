@@ -10,8 +10,8 @@ class AuthRequestBody implements RequestBodyInterface
 {
     public function __construct(
         protected string  $merchantId, //* uuid
-        protected ?string $clientId = null, //<=100 chars
         protected string  $paymentProvider, //* one of /status/paymentProviders todo
+        protected ?string $clientId = null, //<=100 chars
         protected ?string $scope = null, //enum('AISP', 'AISP_PISP')
         protected ?string $callbackUrl = null,
         protected ?array  $accountIdentifications = null, //[] of objects

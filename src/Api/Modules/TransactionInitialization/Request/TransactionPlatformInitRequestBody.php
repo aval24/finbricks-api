@@ -12,9 +12,9 @@ class TransactionPlatformInitRequestBody implements RequestBodyInterface
         protected string $merchantId, //"c3073b9d-edd0-49f2-a28d-b7ded8ff9a8b"  *
         protected string $merchantTransactionId, //"e284d244-f2ce-4ee6-9ae3-27869cbd8d0f"  *
         protected string $totalPrice, // 372.88 *
+        protected string $creditorAccountIban, //"CZ5508000000001234567891" *
         // Debtor's account number in IBAN format. Can be null only with combination of MBANK Payment provider
         protected ?string $debtorAccountIban = null, //"CZ5508000000001234567899"
-        protected string $creditorAccountIban, //"CZ5508000000001234567891" *
         protected ?string $description = null, // "Platba za energie",
         protected ?string $variableSymbol = null, // "0123456789",
         protected ?string $specificSymbol = null, // "0123456789",
