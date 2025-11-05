@@ -35,7 +35,7 @@ class ApiClient
                 $apiRequest->getOptions()
             );
 
-            $apiResponse= $apiRequest->getApiResponseInstance($response);
+            $apiResponse = $apiRequest->getApiResponseInstance($response);
 
             $this->logSuccess($apiRequest, $apiResponse);
 
@@ -66,6 +66,7 @@ class ApiClient
             'request_uri' => $apiRequest->getEndpoint(),
             'request_method' => $apiRequest->getMethod(),
             'status_code' => $apiResponse->getStatusCode(),
+            'headers' => $apiRequest->getOptions()['headers'] ?? [],
             'request' => match ($apiRequest->getMethod()) {
                 'POST' => $apiRequest->getOptions()['json'] ?? null,
                 'GET' => $apiRequest->getOptions()['query'] ?? null,
@@ -81,13 +82,14 @@ class ApiClient
             'request_uri' => $apiRequest->getEndpoint(),
             'request_method' => $apiRequest->getMethod(),
             'status_code' => $e->getCode(),
+            'headers' => $apiRequest->getOptions()['headers'] ?? [],
             'request' => match ($apiRequest->getMethod()) {
                 'POST' => $apiRequest->getOptions()['json'] ?? null,
                 'GET' => $apiRequest->getOptions()['query'] ?? null,
                 default => null,
             },
             'response' => null,
-            'error' => $e->toArray()
+            'error' => $e->toArray(),
         ]);
     }
 }
