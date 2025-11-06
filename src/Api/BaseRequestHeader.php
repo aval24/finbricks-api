@@ -5,21 +5,22 @@ namespace Api;
 class BaseRequestHeader implements RequestHeaderInterface
 {
     public function __construct(
-        protected string $psuIpAddress,
-        protected string $psuUserAgent
+        protected ?string $psuIpAddress = null,
+        protected ?string $psuUserAgent = null,
     ) {
         $this->validate();
     }
 
     private function validate(): void
     {
-        if (! filter_var($this->psuIpAddress, FILTER_VALIDATE_IP)) {
+        if (null !== $this->psuIpAddress
+            && ! filter_var($this->psuIpAddress, FILTER_VALIDATE_IP)) {
             throw new \InvalidArgumentException('Invalid IP address.');
         }
 
-        if (empty($this->psuUserAgent)) {
-            throw new \InvalidArgumentException('PSU-User-Agent cannot be empty.');
-        }
+        //if (empty($this->psuUserAgent)) {
+        //    throw new \InvalidArgumentException('PSU-User-Agent cannot be empty.');
+        //}
     }
 
     /**
@@ -33,12 +34,12 @@ class BaseRequestHeader implements RequestHeaderInterface
         ];
     }
 
-    public function getPsuIpAddress(): string
+    public function getPsuIpAddress(): ?string
     {
         return $this->psuIpAddress;
     }
 
-    public function getPsuUserAgent(): string
+    public function getPsuUserAgent(): ?string
     {
         return $this->psuUserAgent;
     }
