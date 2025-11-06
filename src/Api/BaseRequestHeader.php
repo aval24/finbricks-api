@@ -28,10 +28,10 @@ class BaseRequestHeader implements RequestHeaderInterface
      */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'PSU-IP-Address' => $this->psuIpAddress,
             'PSU-User-Agent' => $this->psuUserAgent,
-        ];
+        ], fn ($value) => null !== $value);
     }
 
     public function getPsuIpAddress(): ?string
