@@ -24,9 +24,9 @@ class AccountDtoFactory
         return new AccountsWithBalanceResponseDto(
             id: $data['id'],
             accountName: $data['accountName'] ?? null,
-            productName: $data['productName'],
+            productName: $data['productName'] ?? null,
             balance: (string) $data['balance'],
-            currency: $data['currency'],
+            currency: $data['currency'] ?? null,
             balanceType: $data['balanceType'],
             creditDebitIndicator: $data['creditDebitIndicator'],
             pispSuitable: $data['pispSuitable'],
@@ -34,7 +34,7 @@ class AccountDtoFactory
             identification: $identification,
             relationship: $relationship,
             dateTime: new DateTime($data['dateTime']),
-            bic: $data['bic']
+            bic: $data['bic'] ?? null,
         );
     }
 }

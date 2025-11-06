@@ -10,9 +10,9 @@ class AccountsWithBalanceResponseDto
     public function __construct(
         public string $id,
         public ?string $accountName,
-        public string $productName,
+        public ?string $productName,
         public string $balance,
-        public string $currency,
+        public ?string $currency,
         public string $balanceType,
         public string $creditDebitIndicator,
         public bool $pispSuitable,
@@ -20,7 +20,7 @@ class AccountsWithBalanceResponseDto
         public ?AccountIdentificationDto $identification,
         public ?RelationshipDto $relationship,
         public \DateTimeInterface $dateTime,
-        public string $bic,
+        public ?string $bic,
     ) {
     }
 
