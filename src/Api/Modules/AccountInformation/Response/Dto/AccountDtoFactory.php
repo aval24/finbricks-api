@@ -20,6 +20,7 @@ class AccountDtoFactory
         );
 
         $relationship = isset($data['relationship']) ? new RelationshipDto($data['relationship']['isOwner']) : null;
+        $dateTime = isset($data['dateTime']) ? new DateTime($data['dateTime']) : null;
 
         return new AccountsWithBalanceResponseDto(
             id: $data['id'],
@@ -33,7 +34,7 @@ class AccountDtoFactory
             ownersNames: $data['ownersNames'],
             identification: $identification,
             relationship: $relationship,
-            dateTime: new DateTime($data['dateTime']),
+            dateTime: $dateTime,
             bic: $data['bic'] ?? null,
         );
     }
