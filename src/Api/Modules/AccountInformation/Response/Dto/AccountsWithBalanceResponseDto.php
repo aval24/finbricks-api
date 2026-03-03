@@ -19,7 +19,7 @@ class AccountsWithBalanceResponseDto
         public array $ownersNames,
         public ?AccountIdentificationDto $identification,
         public ?RelationshipDto $relationship,
-        public \DateTimeInterface $dateTime,
+        public ?\DateTimeInterface $dateTime,
         public ?string $bic,
     ) {
     }
